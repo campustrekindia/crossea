@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossea Abroad Education | Your Gateway to Global Learning</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff7ed; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ea580c; 
+            border-radius: 4px;
+        }
+
+        /* Animated Background Theme */
+        .theme-bg {
+            background: linear-gradient(-45deg, #fff7ed, #ffedd5, #fdba74, #ffffff);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 10s infinite ease-in-out;
+        }
+        .blob-orange { background: rgba(234, 88, 12, 0.3); }
+        .blob-red { background: rgba(220, 38, 38, 0.2); }
+        .blob-green { background: rgba(22, 163, 74, 0.2); }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        /* Marquee / Ticker Styles */
+        .marquee-container {
+            width: 100%;
+            background: #ea580c; /* Orange-600 */
+            color: white;
+            overflow: hidden;
+            position: relative;
+            padding: 10px 0;
+            z-index: 30;
+            white-space: nowrap;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 4rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* News Slider Animation */
+        .news-slider-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .news-track {
+            display: inline-flex;
+            animation: scroll 30s linear infinite;
+        }
+        .news-card {
+            white-space: normal;
+            flex-shrink: 0;
+            width: 300px;
+            margin-right: 20px;
+            transition: transform 0.3s;
+        }
+        .news-card:hover {
+            transform: scale(1.02);
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hero Right Side Visualization */
+        .hero-dashboard {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-img-bg {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+            z-index: 10;
+        }
+
+        .stat-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+            animation: floatCard 6s ease-in-out infinite;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+            z-index: 40;
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Specific positions for cards */
+        .card-visa {
+            top: 20%;
+            left: -20px;
+            width: 260px;
+        }
+        .card-partners {
+            top: 15%;
+            right: -20px;
+            width: 220px;
+            animation-delay: 1s;
+        }
+        .card-placed {
+            bottom: 25%;
+            right: -10px;
+            width: 240px;
+            animation-delay: 2s;
+        }
+        .card-support {
+            bottom: 15%;
+            left: 10px;
+            width: 200px;
+            animation-delay: 1.5s;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-card {
+            background: white;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.25);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+            border: 1px solid #ffedd5;
+        }
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+        .lead-card {
+            max-width: 450px;
+            padding: 30px;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #fed7aa;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .input-field:focus {
+            border-color: #ea580c;
+        }
+        .input-label {
+            position: absolute;
+            left: 12px;
+            top: 14px;
+            color: #9a3412;
+            pointer-events: none;
+            transition: 0.2s;
+            background: white;
+            padding: 0 4px;
+        }
+        .input-field:focus ~ .input-label,
+        .input-field:not(:placeholder-shown) ~ .input-label {
+            top: -10px;
+            font-size: 0.8rem;
+            color: #ea580c;
+            font-weight: 600;
+        }
+        .step-hidden { display: none; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-orange-50 text-slate-800 selection:bg-orange-200 selection:text-orange-900">
+
+    <!-- LEAD CAPTURE MODAL -->
+    <div id="leadModal" class="modal-overlay">
+        <!-- ... (Same Lead Modal Content) ... -->
+        <div class="modal-card lead-card">
+            <button onclick="closeModal('leadModal')" class="absolute top-4 right-4 text-orange-400 hover:text-orange-600 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="inline-block p-3 bg-orange-100 rounded-full text-orange-600 mb-3">
+                    <i class="fa-solid fa-plane-departure text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900">Start Your Journey</h2>
+                <p class="text-slate-500 text-sm">Verify your number to unlock free counseling.</p>
+            </div>
+            <div id="step1">
+                <div class="input-group">
+                    <input type="tel" id="mobileNumber" class="input-field" placeholder=" " required>
+                    <label for="mobileNumber" class="input-label">Mobile Number</label>
+                </div>
+                <button onclick="sendOTP()" id="btnSendOtp" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-orange-500/30 flex justify-center items-center gap-2">
+                    <span>Verify Number</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div id="otpSection" class="hidden mt-4">
+                    <p class="text-green-600 text-sm mb-2 text-center font-medium animate-pulse">OTP Sent successfully!</p>
+                    <div class="flex gap-2 justify-center mb-4">
+                        <input type="text" id="otpInput" class="w-full text-center tracking-widest text-lg font-bold border-2 border-orange-200 rounded-lg py-2 focus:border-orange-600 outline-none" placeholder="Enter 4-digit OTP" maxlength="4">
+                    </div>
+                    <button onclick="verifyOTP()" id="btnVerifyOtp" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-green-500/30">
+                        Confirm OTP
+                    </button>
+                </div>
+            </div>
+            <form id="leadForm" action="https://formspree.io/f/xjgerpaz" method="POST" class="step-hidden" onsubmit="handleLeadSubmit(event)">
+                <input type="hidden" name="Mobile" id="finalMobile">
+                <div class="input-group">
+                    <input type="text" name="Name" id="fullName" class="input-field" placeholder=" " required>
+                    <label for="fullName" class="input-label">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="Email" id="email" class="input-field" placeholder=" " required>
+                    <label for="email" class="input-label">Email Address</label>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-slate-700 mb-2">Interested Countries</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer">
+                            <input type="checkbox" name="Countries" value="USA" class="accent-orange-600">
+                            <span class="text-sm">USA 🇺🇸</span>
+                        </label>
+                        <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer">
+                            <input type="checkbox" name="Countries" value="UK" class="accent-orange-600">
+                            <span class="text-sm">UK 🇬🇧</span>
+                        </label>
+                        <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer">
+                            <input type="checkbox" name="Countries" value="Canada" class="accent-orange-600">
+                            <span class="text-sm">Canada 🇨🇦</span>
+                        </label>
+                        <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer">
+                            <input type="checkbox" name="Countries" value="Australia" class="accent-orange-600">
+                            <span class="text-sm">Australia 🇦🇺</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" id="btnFinalSubmit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-orange-500/30">
+                    Get Free Counseling
+                </button>
+            </form>
+            <div id="successMessage" class="hidden text-center py-8">
+                <div class="text-6xl text-green-500 mb-4">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800">Thank You!</h3>
+                <p class="text-slate-600 mt-2">Our agent will contact you shortly.</p>
+                <button onclick="closeModal('leadModal')" class="mt-6 text-orange-600 font-semibold hover:underline">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DESTINATION DETAILS MODAL -->
+    <div id="destinationModal" class="modal-overlay">
+        <!-- ... (Same Destination Modal Content) ... -->
+        <div class="modal-card">
+            <button onclick="closeModal('destinationModal')" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center text-orange-600 hover:bg-orange-50 transition">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="grid md:grid-cols-12 h-full">
+                <div class="md:col-span-4 relative h-64 md:h-auto">
+                    <img id="modalImage" src="" class="absolute inset-0 w-full h-full object-cover md:rounded-l-2xl rounded-t-2xl md:rounded-tr-none">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/80 to-transparent flex items-end p-6">
+                        <div>
+                            <h2 id="modalTitle" class="text-3xl font-bold text-white mb-1">USA</h2>
+                            <p id="modalSubtitle" class="text-orange-200 text-sm">Land of Opportunity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-8 p-8 bg-white md:rounded-r-2xl">
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 bg-orange-50 rounded-xl border border-orange-100">
+                            <div class="text-orange-600 mb-1"><i class="fa-solid fa-sack-dollar"></i> Avg Budget</div>
+                            <p id="modalBudget" class="font-bold text-slate-800">$30k - $50k / year</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <div class="text-blue-600 mb-1"><i class="fa-solid fa-shield-halved"></i> Safety Index</div>
+                            <p id="modalSafety" class="font-bold text-slate-800">High</p>
+                        </div>
+                        <div class="p-4 bg-green-50 rounded-xl border border-green-100">
+                            <div class="text-green-600 mb-1"><i class="fa-solid fa-briefcase"></i> Avg Salary</div>
+                            <p id="modalSalary" class="font-bold text-slate-800">$85,000 / year</p>
+                        </div>
+                        <div class="p-4 bg-red-50 rounded-xl border border-red-100">
+                            <div class="text-red-600 mb-1"><i class="fa-solid fa-fire"></i> Top Job</div>
+                            <p id="modalJob" class="font-bold text-slate-800">Software Engineer</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-orange-500 pl-3">Top Universities</h3>
+                            <ul id="modalUniversities" class="list-disc pl-5 space-y-1 text-slate-600"></ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-blue-500 pl-3">Trending Courses</h3>
+                            <div id="modalCourses" class="flex flex-wrap gap-2"></div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-pink-500 pl-3">Social Trend</h3>
+                            <p id="modalSocial" class="text-slate-600 italic bg-slate-50 p-3 rounded-lg"></p>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-end">
+                        <a href="https://instagram.com/crossea.in" target="_blank" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition">
+                            <i class="fa-brands fa-instagram mr-2"></i> Connect on Insta
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-orange-100 py-2 top-0" id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#home" class="flex items-center">
+                <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-20 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+                <a href="#home" class="hover:text-orange-600 transition">Home</a>
+                <a href="#news" class="hover:text-orange-600 transition">Latest News</a>
+                <a href="#services" class="hover:text-orange-600 transition">Services</a>
+                <a href="#destinations" class="hover:text-orange-600 transition">Destinations</a>
+                <a href="https://instagram.com/crossea.in" target="_blank" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:opacity-90 transition shadow-lg shadow-pink-500/30">
+                    <i class="fa-brands fa-instagram mr-1"></i> Book Consultation
+                </a>
+            </div>
+            <button class="md:hidden text-2xl text-slate-800"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- MARQUEE STRIP -->
+    <!-- Adjusted margin-top to mt-[105px] to account for larger logo in navbar -->
+    <div class="mt-[105px] marquee-container">
+        <div class="marquee-content">
+            <!-- Duplicated content for seamless scroll -->
+            <div class="inline-flex">
+                <span class="marquee-item"><i class="fa-solid fa-plane mr-2 text-yellow-300"></i> Free Flight Tickets</span>
+                <span class="marquee-item"><i class="fa-solid fa-graduation-cap mr-2 text-yellow-300"></i> Scholarships upto ₹50,000/-</span>
+                <span class="marquee-item"><i class="fa-solid fa-hand-holding-dollar mr-2 text-yellow-300"></i> Loan Assistance</span>
+                <span class="marquee-item"><i class="fa-solid fa-check-double mr-2 text-yellow-300"></i> Free Processing from Counselling to Post Arrival</span>
+            </div>
+            <div class="inline-flex">
+                <span class="marquee-item"><i class="fa-solid fa-plane mr-2 text-yellow-300"></i> Free Flight Tickets</span>
+                <span class="marquee-item"><i class="fa-solid fa-graduation-cap mr-2 text-yellow-300"></i> Scholarships upto ₹50,000/-</span>
+                <span class="marquee-item"><i class="fa-solid fa-hand-holding-dollar mr-2 text-yellow-300"></i> Loan Assistance</span>
+                <span class="marquee-item"><i class="fa-solid fa-check-double mr-2 text-yellow-300"></i> Free Processing from Counselling to Post Arrival</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="theme-bg min-h-[calc(100vh-120px)] flex items-center pt-8 relative overflow-hidden">
+        <!-- Animated Blobs -->
+        <div class="blob blob-orange w-96 h-96 top-0 left-0"></div>
+        <div class="blob blob-red w-80 h-80 bottom-20 right-20 animation-delay-2000"></div>
+        <div class="blob blob-green w-64 h-64 top-40 right-1/2 animation-delay-4000"></div>
+
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <!-- Left Side: Content -->
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-block px-4 py-1 border border-orange-300 rounded-full text-orange-700 text-sm mb-6 bg-white/40 backdrop-blur-sm font-semibold">
+                    🚀 #1 Study Abroad Consultants
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 text-slate-900">
+                    Dream Big. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">Study Abroad.</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 max-w-lg font-medium">
+                    We guide you from university selection to visa approval. Join thousands of students achieving their global dreams with Crossea.
+                </p>
+                <div class="flex gap-4">
+                    <button onclick="openModal('leadModal')" class="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition shadow-xl shadow-orange-500/30 transform hover:-translate-y-1">
+                        Apply Now
+                    </button>
+                    <a href="https://www.youtube.com/results?search_query=Crossea+Abroad+Education" target="_blank" class="px-8 py-4 border-2 border-orange-200 text-orange-700 font-bold rounded-full hover:bg-orange-50 transition flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
+                        How it works
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Expanded Dashboard Visual -->
+            <div class="hero-dashboard hidden lg:flex" data-aos="fade-left" data-aos-duration="1200">
+                <!-- Main Image Background (UPDATED) -->
+                <div class="hero-img-bg">
+                    <img src="https://i.ibb.co/vCDSdWbd/image.png" alt="Student Success" class="w-full h-full object-cover opacity-90">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent"></div>
+                </div>
+
+                <!-- Floating Card 1: Visa Success -->
+                <div class="stat-card card-visa">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                        <i class="fa-solid fa-check text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg text-slate-800">98% Visa Success</p>
+                        <p class="text-xs text-slate-500">Proven Track Record</p>
+                        <!-- Progress Bar Visual -->
+                        <div class="w-full h-1.5 bg-gray-100 rounded-full mt-2 overflow-hidden">
+                            <div class="h-full bg-green-500 rounded-full" style="width: 98%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Card 2: Partners -->
+                <div class="stat-card card-partners">
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 shrink-0">
+                        <i class="fa-solid fa-building-columns text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg text-slate-800">500+ Partners</p>
+                        <p class="text-xs text-slate-500">Top Universities</p>
+                    </div>
+                </div>
+
+                <!-- Floating Card 3: Placed Students -->
+                <div class="stat-card card-placed">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                        <i class="fa-solid fa-users text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg text-slate-800">10k+ Placed</p>
+                        <p class="text-xs text-slate-500">Happy Students Globally</p>
+                        <div class="flex -space-x-2 mt-2">
+                            <div class="w-6 h-6 rounded-full bg-gray-300 border-2 border-white"></div>
+                            <div class="w-6 h-6 rounded-full bg-gray-400 border-2 border-white"></div>
+                            <div class="w-6 h-6 rounded-full bg-gray-500 border-2 border-white"></div>
+                            <div class="w-6 h-6 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-[8px] font-bold text-gray-600">+10k</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Card 4: Support (New) -->
+                <div class="stat-card card-support">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
+                        <i class="fa-solid fa-headset text-lg"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-md text-slate-800">24/7 Support</p>
+                        <p class="text-xs text-slate-500">Always here for you</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWS FLASH SECTION -->
+    <section id="news" class="py-12 bg-white border-y border-orange-100">
+        <!-- ... (Same News Section) ... -->
+        <div class="container mx-auto px-6 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-orange-500 animate-pulse"></i> Latest Updates
+            </h2>
+        </div>
+        <div class="news-slider-container">
+            <div class="news-track" id="newsTrack">
+                <div class="news-card p-4 bg-orange-50 rounded-xl border border-orange-100 shadow-sm">
+                    <span class="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-1 rounded">VISA UPDATE</span>
+                    <h3 class="font-bold text-slate-800 mt-2 text-sm">US Student Visa slots opening soon for Fall 2024 intake.</h3>
+                </div>
+                <div class="news-card p-4 bg-blue-50 rounded-xl border border-blue-100 shadow-sm">
+                    <span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">UK RULES</span>
+                    <h3 class="font-bold text-slate-800 mt-2 text-sm">New dependent visa rules announced for UK masters students.</h3>
+                </div>
+                <div class="news-card p-4 bg-green-50 rounded-xl border border-green-100 shadow-sm">
+                    <span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded">SCHOLARSHIP</span>
+                    <h3 class="font-bold text-slate-800 mt-2 text-sm">Melbourne University announces 100% scholarships for Indian students.</h3>
+                </div>
+                <div class="news-card p-4 bg-red-50 rounded-xl border border-red-100 shadow-sm">
+                    <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded">CANADA PR</span>
+                    <h3 class="font-bold text-slate-800 mt-2 text-sm">Ontario PNP draw invites 2000+ international graduates.</h3>
+                </div>
+                 <div class="news-card p-4 bg-purple-50 rounded-xl border border-purple-100 shadow-sm">
+                    <span class="text-xs font-bold text-purple-600 bg-purple-100 px-2 py-1 rounded">GERMANY</span>
+                    <h3 class="font-bold text-slate-800 mt-2 text-sm">Germany creates new opportunity card for job seekers.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-orange-50/50">
+        <!-- ... (Same Services Section) ... -->
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4">Our Premium Services</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">We provide end-to-end support to ensure your journey to your dream university is smooth.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-orange-100 transition border border-orange-100 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Career Counseling</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Expert guidance to choose the right course and university based on your profile.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-blue-100 transition border border-blue-100 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-passport"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Visa Assistance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Comprehensive support for visa documentation, mock interviews, and application filing.</p>
+                </div>
+                <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-green-100 transition border border-green-100 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-green-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Test Preparation</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Coaching for IELTS, TOEFL, GRE, and GMAT with experienced faculty and mock tests.</p>
+                </div>
+                 <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-yellow-100 transition border border-yellow-100 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-yellow-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Scholarship Guidance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We help you identify and apply for merit-based scholarships and education loans.</p>
+                </div>
+                 <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-red-100 transition border border-red-100 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-red-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Accommodation Support</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Find safe and affordable housing near your university before you even land.</p>
+                </div>
+                 <div class="p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-indigo-100 transition border border-indigo-100 group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-plane-arrival"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800">Post-Arrival Help</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Assistance with airport pickup, sim cards, bank accounts, and city orientation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTRIES -->
+    <section id="destinations" class="py-24 bg-white relative overflow-hidden">
+        <!-- ... (Same Countries Section) ... -->
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-4xl font-bold mb-12 text-center text-slate-900">Top Destinations</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div onclick="openDestinationModal('USA')" class="group relative rounded-xl overflow-hidden h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-2xl font-bold text-white">USA</h3>
+                        <p class="text-orange-200 text-sm mt-2 opacity-0 group-hover:opacity-100 transition translate-y-4 group-hover:translate-y-0">Click for full details <i class="fa-solid fa-arrow-right ml-1"></i></p>
+                    </div>
+                </div>
+                <div onclick="openDestinationModal('UK')" class="group relative rounded-xl overflow-hidden h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-2xl font-bold text-white">UK</h3>
+                        <p class="text-blue-200 text-sm mt-2 opacity-0 group-hover:opacity-100 transition translate-y-4 group-hover:translate-y-0">Click for full details <i class="fa-solid fa-arrow-right ml-1"></i></p>
+                    </div>
+                </div>
+                <div onclick="openDestinationModal('Canada')" class="group relative rounded-xl overflow-hidden h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-red-900/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-2xl font-bold text-white">Canada</h3>
+                        <p class="text-red-200 text-sm mt-2 opacity-0 group-hover:opacity-100 transition translate-y-4 group-hover:translate-y-0">Click for full details <i class="fa-solid fa-arrow-right ml-1"></i></p>
+                    </div>
+                </div>
+                <div onclick="openDestinationModal('Australia')" class="group relative rounded-xl overflow-hidden h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-green-900/90 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-2xl font-bold text-white">Australia</h3>
+                        <p class="text-green-200 text-sm mt-2 opacity-0 group-hover:opacity-100 transition translate-y-4 group-hover:translate-y-0">Click for full details <i class="fa-solid fa-arrow-right ml-1"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-slate-500 py-12 border-t border-orange-100">
+        <!-- ... (Same Footer) ... -->
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-4 text-orange-600">
+                    <i class="fa-solid fa-graduation-cap text-3xl"></i>
+                    <span class="text-xl font-bold text-slate-800">Crossea</span>
+                </div>
+                <p class="mb-6 max-w-sm text-sm">Empowering students to achieve their global education dreams through expert counseling and personalized guidance.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center hover:bg-orange-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/crossea.in" target="_blank" class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center hover:bg-pink-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center hover:bg-blue-400 hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-slate-800 font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-orange-600 transition">About Us</a></li>
+                    <li><a href="#services" class="hover:text-orange-600 transition">Our Services</a></li>
+                    <li><a href="#destinations" class="hover:text-orange-600 transition">University List</a></li>
+                    <li><a href="#leadModal" onclick="openModal('leadModal')" class="hover:text-orange-600 transition">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-slate-800 font-bold mb-4">Contact Us</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-orange-500"></i> +91 98765 43210</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-orange-500"></i> info@crossea.edu</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-orange-500"></i> Hyderabad, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-12 pt-8 border-t border-orange-100 text-center text-xs">
+            &copy; 2024 Crossea Abroad Education. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. INITIALIZATION & ANIMATIONS ---
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+
+        // Trigger modal on load (After 1.5 seconds)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const modal = document.getElementById('leadModal');
+                if(!sessionStorage.getItem('leadSubmitted')) {
+                    modal.classList.add('active');
+                }
+            }, 1500);
+
+            // Clone news items for infinite scroll
+            const track = document.getElementById('newsTrack');
+            track.innerHTML += track.innerHTML;
+        });
+
+        // --- 2. MODAL LOGIC (Lead & Destination) ---
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+
+        // --- 3. DESTINATION DATA & LOGIC ---
+        const destinations = {
+            'USA': {
+                image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                subtitle: 'Ivy Leagues & Innovation',
+                budget: '$30k - $60k / year',
+                safety: 'Moderate - High',
+                salary: '$85,000 / year',
+                job: 'Software Engineer / Data Scientist',
+                universities: ['MIT', 'Stanford University', 'Harvard University', 'Caltech', 'University of Texas at Austin'],
+                courses: ['Computer Science', 'Business Analytics', 'Biotechnology', 'Mechanical Eng.'],
+                social: '#USALife #StudentVisa #OPT - Trending topics include F1 Visa slot updates and OPT extension rules.'
+            },
+            'UK': {
+                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                subtitle: 'Heritage & Academic Excellence',
+                budget: '£20k - £40k / year',
+                safety: 'High',
+                salary: '£45,000 / year',
+                job: 'Finance / Investment Banking',
+                universities: ['University of Oxford', 'University of Cambridge', 'Imperial College London', 'LSE', 'UCL'],
+                courses: ['Law', 'Finance', 'Medicine', 'Management'],
+                social: '#LondonLife #PSW - Buzzing about the 2-year Graduate Route visa and new dependent rules.'
+            },
+            'Canada': {
+                image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                subtitle: 'Quality Education & PR Pathways',
+                budget: 'CAD 20k - 40k / year',
+                safety: 'Very High',
+                salary: 'CAD 65,000 / year',
+                job: 'Healthcare / IT Project Manager',
+                universities: ['University of Toronto', 'McGill University', 'UBC', 'University of Alberta'],
+                courses: ['Nursing', 'Cloud Computing', 'Project Management', 'Engineering'],
+                social: '#CanadaPR #ExpressEntry - Hot topics include recent PNP draws and PGWP updates.'
+            },
+            'Australia': {
+                image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                subtitle: 'Great Lifestyle & World Class Research',
+                budget: 'AUD 30k - 50k / year',
+                safety: 'High',
+                salary: 'AUD 75,000 / year',
+                job: 'Civil Engineering / Mining',
+                universities: ['University of Melbourne', 'Australian National University', 'University of Sydney', 'UNSW'],
+                courses: ['Mining', 'Marine Biology', 'IT', 'MBA'],
+                social: '#StudyAustralia #BeachLife - Discussions on extended post-study work rights for specific degrees.'
+            }
+        };
+
+        function openDestinationModal(country) {
+            const data = destinations[country];
+            if(!data) return;
+
+            document.getElementById('modalTitle').innerText = country;
+            document.getElementById('modalImage').src = data.image;
+            document.getElementById('modalSubtitle').innerText = data.subtitle;
+            document.getElementById('modalBudget').innerText = data.budget;
+            document.getElementById('modalSafety').innerText = data.safety;
+            document.getElementById('modalSalary').innerText = data.salary;
+            document.getElementById('modalJob').innerText = data.job;
+            document.getElementById('modalSocial').innerText = data.social;
+
+            const uniList = document.getElementById('modalUniversities');
+            uniList.innerHTML = '';
+            data.universities.forEach(uni => {
+                const li = document.createElement('li');
+                li.innerText = uni;
+                uniList.appendChild(li);
+            });
+
+            const courseList = document.getElementById('modalCourses');
+            courseList.innerHTML = '';
+            data.courses.forEach(course => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium';
+                span.innerText = course;
+                courseList.appendChild(span);
+            });
+
+            openModal('destinationModal');
+        }
+
+
+        // --- 4. OTP SIMULATION ---
+        function sendOTP() {
+            const mobile = document.getElementById('mobileNumber').value;
+            const btn = document.getElementById('btnSendOtp');
+            
+            if(mobile.length < 10) {
+                alert("Please enter a valid mobile number.");
+                return;
+            }
+
+            // Simulate Loading
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<div class="loader" style="border-top-color: white"></div>';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.add('hidden'); // Hide Verify button
+                document.getElementById('otpSection').classList.remove('hidden'); // Show OTP field
+            }, 1500);
+        }
+
+        function verifyOTP() {
+            const otp = document.getElementById('otpInput').value;
+            const btn = document.getElementById('btnVerifyOtp');
+
+            if(otp === "1234" || otp.length === 4) { 
+                // Simulate Loading
+                btn.innerHTML = '<div class="loader" style="border-top-color: white"></div>';
+                
+                setTimeout(() => {
+                    // Success Transition
+                    document.getElementById('step1').classList.add('hidden');
+                    document.getElementById('leadForm').classList.remove('step-hidden');
+                    // Transfer mobile to hidden input
+                    document.getElementById('finalMobile').value = document.getElementById('mobileNumber').value;
+                }, 1000);
+            } else {
+                alert("Invalid OTP. Try 1234.");
+            }
+        }
+
+        // --- 5. FORM SUBMISSION ---
+        async function handleLeadSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = document.getElementById('btnFinalSubmit');
+            const originalBtnText = btn.innerText;
+
+            btn.innerText = "Submitting...";
+            btn.disabled = true;
+
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    sessionStorage.setItem('leadSubmitted', 'true');
+                    form.classList.add('hidden'); 
+                    document.getElementById('successMessage').classList.remove('hidden'); 
+                } else {
+                    alert("Oops! There was a problem submitting your form");
+                    btn.innerText = originalBtnText;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                alert("Oops! There was a problem submitting your form");
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            }
+        }
+
+    </script>
+</body>
+</html>
