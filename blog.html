@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest USA visa policies, H-1B cap updates, and international education news from Crossea Abroad Education.">
+    <title>Blog & Updates | Crossea Abroad Education</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #fff7ed; }
+        ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
+        .nav-link { position: relative; cursor: pointer; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #ea580c; transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: #ea580c; }
+        #mobileMenu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
+        #mobileMenu.open { transform: translateX(0); }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 selection:bg-orange-200 selection:text-orange-900 relative">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-orange-100 py-3 top-0 shadow-sm">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center shrink-0">
+                <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-12 md:h-16 w-auto object-contain transition-all">
+            </a>
+            
+            <div class="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-6 font-semibold text-slate-600 text-[13px] lg:text-sm xl:text-base ml-auto mr-2 lg:mr-4">
+                <a href="index.html?page=home" class="nav-link whitespace-nowrap">Home</a>
+                <a href="index.html?page=about" class="nav-link whitespace-nowrap">About Us</a>
+                <a href="index.html#services-section" class="nav-link whitespace-nowrap">Our Services</a>
+                <a href="index.html?page=universities" class="nav-link whitespace-nowrap">University List</a>
+                <a href="index.html?page=community" class="nav-link whitespace-nowrap">Community</a>
+                <a href="index.html?page=careers" class="nav-link whitespace-nowrap">Careers</a>
+                <a href="blog.html" class="nav-link active whitespace-nowrap">Blog</a>
+            </div>
+            
+            <a href="index.html#consultation" class="hidden md:flex ml-2 px-5 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:opacity-90 transition shadow-lg shadow-purple-500/30 items-center gap-2 shrink-0 text-sm font-bold">
+                <i class="fa-regular fa-calendar-check"></i> <span>Book Consultation</span>
+            </a>
+
+            <button class="md:hidden ml-auto text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] flex flex-col p-6 shadow-2xl md:hidden overflow-y-auto">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b border-orange-100">
+            <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-10 w-auto">
+            <button onclick="document.getElementById('mobileMenu').classList.toggle('open')" class="text-3xl text-slate-500 hover:text-orange-600 p-2 rounded-full">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="flex flex-col gap-2 text-lg font-bold text-slate-700">
+            <a href="index.html?page=home" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4"><i class="fa-solid fa-house text-orange-400 w-6"></i> Home</a>
+            <a href="index.html?page=about" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4"><i class="fa-solid fa-circle-info text-orange-400 w-6"></i> About Us</a>
+            <a href="blog.html" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4 text-orange-600"><i class="fa-solid fa-blog text-orange-400 w-6"></i> Blog</a>
+            <a href="index.html#consultation" class="mt-4 p-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white flex justify-center items-center gap-2 shadow-lg"><i class="fa-regular fa-calendar-check"></i> Book Consultation</a>
+        </div>
+    </div>
+
+    <!-- MAIN BLOG CONTENT -->
+    <main class="pt-[90px] md:pt-[110px] pb-20">
+        
+        <!-- SIMPLE SEO HEADER -->
+        <section class="bg-orange-50 py-12 md:py-20 mb-8 md:mb-10 border-b border-orange-100">
+            <div class="container mx-auto px-4 md:px-6 text-center">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4">Immigration & Education Updates</h1>
+                <p class="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">Latest insights, visa policy shifts, and university news to keep your international journey on track.</p>
+            </div>
+        </section>
+
+        <!-- CONTENT CONTAINER -->
+        <section class="container mx-auto px-4 md:px-6 max-w-6xl">
+            
+            <!-- TRENDING FEATURED ARTICLE -->
+            <div class="mb-12 md:mb-16">
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <i class="fa-solid fa-fire text-orange-500 text-xl"></i>
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-900">Trending Articles under USA Visa</h2>
+                </div>
+
+                <!-- ARTICLE CARD -->
+                <article class="article-card cursor-pointer bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col md:flex-row" onclick="openModal(this)">
+                    <div class="md:w-1/2 h-60 md:h-auto md:min-h-[300px] overflow-hidden relative block shrink-0">
+                        <img src="https://images.pexels.com/photos/17445102/pexels-photo-17445102.jpeg?cs=srgb&dl=pexels-am83-17445102.jpg&fm=jpg" alt="USA Visa News" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="article-tag absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 rounded shadow-md uppercase" data-color="bg-orange-600">Breaking News</div>
+                    </div>
+                    <div class="p-6 md:p-8 md:w-1/2 flex flex-col justify-center">
+                        <div class="flex gap-2 mb-3">
+                            <span class="text-orange-600 font-bold text-sm">H-1B FY 2027</span>
+                            <span class="text-slate-400">•</span>
+                            <span class="text-slate-500 text-sm">Feb 2026</span>
+                        </div>
+                        <h3 class="article-title text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-orange-600 transition leading-tight">H-1B Cap: Registration Timeline and Wage-Weighted Selection</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            USCIS has officially confirmed the initial registration period for the FY 2027 H-1B cap will run from March 4 to March 19, 2026. This season solidifies the implementation of the wage-weighted selection process intended to prioritize higher-skilled workers over entry-level roles.
+                        </p>
+                        
+                        <!-- HIDDEN FULL CONTENT FOR MODAL -->
+                        <div class="article-content hidden">
+                            <p class="mb-4">USCIS has officially confirmed the initial registration period for the FY 2027 H-1B cap will run from March 4 to March 19, 2026. This season solidifies the implementation of the wage-weighted selection process intended to prioritize higher-skilled workers over entry-level roles.</p>
+                            <p class="mb-4"><strong>What this means for applicants:</strong> The new rule heavily favors beneficiaries whose offered wage equals or exceeds the Level 4 prevailing wage for their occupational classification. International students graduating and transitioning to H-1B via OPT may face significantly lower selection probabilities unless securing top-tier compensation packages.</p>
+                            <p>Employers are advised to review Labor Condition Application (LCA) data thoroughly and align salary structures prior to the March 4th registration opening to remain compliant and competitive.</p>
+                        </div>
+
+                        <span class="text-orange-600 font-bold group-hover:text-orange-800 transition flex items-center gap-2 mt-auto w-max">
+                            Read Full Analysis <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </article>
+            </div>
+
+            <!-- LATEST POSTS GRID -->
+            <div>
+                <div class="flex items-center gap-3 mb-6 border-b border-slate-200 pb-2">
+                    <h2 class="text-2xl font-bold text-slate-900">Latest Posts</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    
+                    <!-- Post 1 (F-1 Visa) -->
+                    <article class="article-card cursor-pointer bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group h-full" onclick="openModal(this)">
+                        <div class="block h-48 overflow-hidden rounded-t-xl relative">
+                            <img src="https://st2.depositphotos.com/3736675/7131/i/450/depositphotos_71311971-stock-photo-visa-stamp-travel.jpg" alt="Students Visa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="article-tag hidden" data-color="bg-blue-600">F-1 Visa</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">F-1 Visa</span>
+                            <h3 class="article-title text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">US Consulates Open Early F-1 Slots for Fall 2026</h3>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">The US Mission in India has announced that bulk student visa appointment slots will begin opening in early May, addressing unprecedented applicant volumes.</p>
+                            
+                            <!-- HIDDEN FULL CONTENT -->
+                            <div class="article-content hidden">
+                                <p class="mb-4">The US Mission in India has announced that bulk student visa appointment slots will begin opening in early May, addressing unprecedented applicant volumes for the Fall 2026 intake.</p>
+                                <p>Students are heavily encouraged to ensure their I-20 documentation is fully processed and SEVIS fees are paid by mid-April. This allows them to immediately capitalize on early slot releases. Wait times are expected to spike severely by late June, causing potential delays for late applicants trying to reach campus by August.</p>
+                            </div>
+
+                            <span class="mt-auto text-slate-900 font-bold text-sm group-hover:text-blue-600 transition flex items-center gap-1">Read Article <i class="fa-solid fa-angle-right"></i></span>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 (TELEGRAM REDIRECT - NO MODAL) -->
+                    <a href="https://t.me/crossea" target="_blank" class="bg-gradient-to-br from-blue-50 to-white rounded-xl border border-blue-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all flex flex-col group h-full relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-5 transition duration-300"></div>
+                        <div class="block h-48 overflow-hidden rounded-t-xl relative">
+                            <img src="https://i.ibb.co/5xh9G3vx/image.png" alt="Telegram Community" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute top-3 right-3 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded shadow"><i class="fa-brands fa-telegram mr-1"></i>Official</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow z-10">
+                            <span class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">Community</span>
+                            <h3 class="text-lg font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">Join our Telegram Channel for Instant Updates</h3>
+                            <p class="text-slate-600 text-sm mb-4">Get real-time visa bulletins, scholarship alerts, university deadlines, and direct answers from our expert counselors instantly on your phone.</p>
+                            <span class="mt-auto text-blue-600 font-bold text-sm hover:text-blue-800 transition flex items-center gap-2">Join Channel Now <i class="fa-solid fa-paper-plane"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Post 3 (B1/B2 Visa) -->
+                    <article class="article-card cursor-pointer bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group h-full" onclick="openModal(this)">
+                        <div class="block h-48 overflow-hidden rounded-t-xl relative">
+                            <img src="https://images.ctfassets.net/qr8kennq1pom/5HF0Mi5GfB262aIkDMhF7w/322628b6b897a980794712a8c50e7e60/students_in_london.jpg" alt="Travel and Tourist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="article-tag hidden" data-color="bg-purple-600">B1/B2 Visa</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-purple-600 font-bold text-xs uppercase tracking-wider mb-2">B1/B2 Visa</span>
+                            <h3 class="article-title text-lg font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition leading-snug">Disparities in US Tourist Visa Scheduling Times</h3>
+                            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Data reveals massive gaps in wait times across consulates. Chennai currently offers appointments in 1 month, while Mumbai trails at 10 months.</p>
+                            
+                            <!-- HIDDEN FULL CONTENT -->
+                            <div class="article-content hidden">
+                                <p class="mb-4">Recent data releases indicate massive geographical gaps in wait times across US consulates in India. For example, Chennai currently offers B1/B2 appointments in roughly 1 month, while Mumbai severely trails at nearly 10 months.</p>
+                                <p>Applicants for B1/B2 visas (business/tourist) should strategically consider applying at consulates with lighter caseloads if their travel is time-sensitive. However, applicants must keep in mind that language-specific interviews (e.g., Telugu, Marathi) might be restricted to particular regional locations.</p>
+                            </div>
+
+                            <span class="mt-auto text-slate-900 font-bold text-sm group-hover:text-purple-600 transition flex items-center gap-1">Read Article <i class="fa-solid fa-angle-right"></i></span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white text-slate-500 py-10 md:py-12 border-t border-slate-200">
+        <div class="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-12 w-auto object-contain grayscale opacity-80 mb-4">
+                <p class="mb-6 max-w-sm text-sm">Empowering students to achieve their global education dreams through expert counseling and personalized guidance.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-orange-600 hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/crossea.in" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-pink-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col">
+                <h4 class="text-slate-900 font-bold mb-4 text-lg">Quick Links</h4>
+                <ul class="flex flex-col space-y-3 font-medium text-slate-600">
+                    <li><a href="index.html?page=about" class="hover:text-orange-600 transition">About Us</a></li>
+                    <li><a href="index.html#services-section" class="hover:text-orange-600 transition">Our Services</a></li>
+                    <li><a href="index.html?page=universities" class="hover:text-orange-600 transition">University List</a></li>
+                    <li><a href="blog.html" class="hover:text-orange-600 transition">Blog</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-slate-900 font-bold mb-4 text-lg">Contact Us</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-3 text-slate-700 font-medium"><i class="fa-solid fa-phone text-orange-500"></i> +91 95501 94749</li>
+                    <li class="flex items-center gap-3 text-slate-700"><i class="fa-solid fa-envelope text-orange-500"></i> info@crossea.edu</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 md:px-6 mt-10 md:mt-12 pt-6 md:pt-8 border-t border-slate-100 text-center text-xs">
+            &copy; 2026 Crossea Abroad Education. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ARTICLE MODAL -->
+    <div id="articleModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 p-4" onclick="closeModal(event)">
+        <!-- Modal Content Box -->
+        <div id="modalContentBlock" class="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] md:max-h-[85vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col" onclick="event.stopPropagation()">
+            
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-3 right-3 md:top-4 md:right-4 w-10 h-10 md:w-12 md:h-12 bg-black/50 hover:bg-black/70 backdrop-blur text-white rounded-full flex items-center justify-center transition z-20 shadow-lg border border-white/20">
+                <i class="fa-solid fa-xmark text-lg md:text-xl"></i>
+            </button>
+            
+            <!-- Modal Image -->
+            <div class="h-56 md:h-80 w-full relative shrink-0">
+                <img id="modalImg" src="" alt="Article Image" class="w-full h-full object-cover">
+                <div id="modalTag" class="absolute top-3 left-3 md:top-4 md:left-4 text-white text-xs font-bold px-3 py-1 rounded shadow-md uppercase z-10"></div>
+                <!-- Gradient Overlay for readability if image is bright -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-5 md:p-10 flex-grow">
+                <h2 id="modalTitle" class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4 md:mb-6 leading-tight"></h2>
+                <div id="modalBody" class="text-slate-700 leading-relaxed text-sm md:text-lg space-y-4">
+                    <!-- Javascript populates this -->
+                </div>
+                
+                <div class="mt-6 md:mt-8 pt-6 border-t border-slate-100 flex justify-end">
+                    <button onclick="closeModal()" class="w-full md:w-auto px-6 py-3 md:py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl md:rounded-lg transition">Close Article</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SCRIPT -->
+    <script>
+        function openModal(element) {
+            // Find data inside the clicked card
+            const title = element.querySelector('.article-title').textContent;
+            const imgSrc = element.querySelector('img').src;
+            const tagEl = element.querySelector('.article-tag');
+            const tagText = tagEl ? tagEl.textContent : 'News';
+            const tagColor = tagEl ? tagEl.getAttribute('data-color') || 'bg-slate-800' : 'bg-slate-800';
+            const bodyHTML = element.querySelector('.article-content').innerHTML;
+
+            // Populate Modal
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalImg').src = imgSrc;
+            const mTag = document.getElementById('modalTag');
+            mTag.textContent = tagText;
+            mTag.className = `absolute top-3 left-3 md:top-4 md:left-4 text-white text-xs font-bold px-3 py-1 rounded shadow-md uppercase z-10 ${tagColor}`;
+            document.getElementById('modalBody').innerHTML = bodyHTML;
+            
+            // Show Modal with Animation
+            const modal = document.getElementById('articleModal');
+            const content = document.getElementById('modalContentBlock');
+            modal.classList.remove('hidden');
+            
+            // Trigger reflow for animation
+            void modal.offsetWidth;
+            
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(event) {
+            // Check if triggered by the backdrop click and handle it
+            if (event && event.target.id !== 'articleModal' && event.currentTarget.id === 'articleModal') {
+                return; // Let the event.stopPropagation() on the child handle it if clicked inside
+            }
+
+            const modal = document.getElementById('articleModal');
+            const content = document.getElementById('modalContentBlock');
+            
+            // Animate out
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            
+            // Hide after animation finishes
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }, 300);
+        }
+    </script>
+</body>
+</html>
