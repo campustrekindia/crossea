@@ -104,27 +104,41 @@
         .news-card:hover { transform: scale(1.02); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* FOMO Animations */
-        @keyframes morphBlob {
-            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        /* Hero Right Side & FOMO Animations */
+        .hero-dashboard {
+            position: relative; width: 100%; height: 380px; display: flex; align-items: center; justify-content: center; margin: 0 auto; max-width: 500px;
         }
-        .animate-morph { animation: morphBlob 10s ease-in-out infinite alternate; }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4); }
-            70% { box-shadow: 0 0 0 25px rgba(234, 88, 12, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(234, 88, 12, 0); }
+        @media (min-width: 1024px) {
+            .hero-dashboard { height: 500px; max-width: none; }
         }
-        .fomo-glow { animation: pulseGlow 2.5s infinite; }
+        .hero-img-bg {
+            position: absolute; width: 85%; height: 90%; border-radius: 32px; overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.3); border: 6px solid white; z-index: 10;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.01); }
+        }
+        .animate-breathe { animation: breathe 6s ease-in-out infinite; }
 
         .stat-card {
-            position: absolute; background: white; border-radius: 16px; padding: 16px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); z-index: 30; display: flex; align-items: center; gap: 12px;
+            position: absolute; background: white; border-radius: 16px; padding: 12px 16px;
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15); z-index: 30; display: flex; align-items: center; gap: 12px;
             transition: transform 0.3s ease; animation: floatCard 6s ease-in-out infinite;
         }
         .stat-card:hover { transform: scale(1.05); z-index: 40; }
-        @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+        /* Card Positions */
+        .card-scarcity { top: 2%; left: -2%; width: 220px; animation-delay: 0s; }
+        .card-social { top: 40%; right: -4%; width: 250px; animation-delay: 1.5s; }
+        .card-urgency { bottom: 5%; left: 0%; width: 220px; animation-delay: 0.7s; }
+        @media (min-width: 768px) {
+            .stat-card { padding: 16px; }
+            .card-scarcity { top: 8%; left: -8%; width: 240px; }
+            .card-social { top: 42%; right: -8%; width: 260px; }
+            .card-urgency { bottom: 10%; left: -4%; width: 230px; }
+        }
 
         /* Modal Styles */
         .modal-overlay {
@@ -355,7 +369,7 @@
                 <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-12 md:h-16 w-auto object-contain transition-all">
             </a>
             
-            <!-- Desktop Menu Aligned to Right (Changed from lg:flex to md:flex) -->
+            <!-- Desktop Menu Aligned to Right -->
             <div class="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-8 font-semibold text-slate-600 text-[13px] lg:text-sm xl:text-base ml-auto mr-2 lg:mr-4">
                 <a onclick="navigate('home')" class="nav-link active cursor-pointer whitespace-nowrap" data-target="home">Home</a>
                 <a onclick="navigate('about')" class="nav-link cursor-pointer whitespace-nowrap" data-target="about">About Us</a>
@@ -364,12 +378,12 @@
                 <a onclick="navigate('careers')" class="nav-link cursor-pointer whitespace-nowrap" data-target="careers">Careers</a>
             </div>
             
-            <!-- Book Consultation Button (Adjusts size dynamically) -->
-            <a href="#consultation" class="hidden md:flex ml-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-full hover:opacity-90 transition shadow-lg shadow-orange-500/30 items-center gap-2 shrink-0 text-sm">
+            <!-- Book Consultation Button (Purple matching screenshot) -->
+            <a href="#consultation" class="hidden md:flex ml-2 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:opacity-90 transition shadow-lg shadow-purple-500/30 items-center gap-2 shrink-0 text-sm font-bold">
                 <i class="fa-solid fa-calendar-check"></i> <span class="hidden lg:inline">Book Consultation</span><span class="inline lg:hidden">Book Now</span>
             </a>
 
-            <!-- Mobile Hamburger Button (Changed from lg:hidden to md:hidden) -->
+            <!-- Mobile Hamburger Button -->
             <button class="md:hidden ml-auto text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -454,14 +468,18 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT SIDE - UNIFIED RESPONSIVE VIEW WITH FOMO CARDS -->
-                    <div class="relative w-full max-w-md mx-auto lg:max-w-none lg:h-[550px] flex items-center justify-center mt-8 lg:mt-0" data-aos="fade-left" data-aos-duration="1200">
-                        <div class="relative w-72 h-72 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px]">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-orange-400 to-red-500 animate-morph blur-md opacity-50 fomo-glow"></div>
-                            <img src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Happy student studying abroad" class="absolute inset-0 w-full h-full object-cover animate-morph border-4 border-white shadow-2xl z-10">
+                    <!-- RIGHT SIDE - RESPONSIVE RECTANGULAR LAYOUT WITH FOMO CARDS & BREATHE ANIMATION -->
+                    <div class="hero-dashboard mt-12 lg:mt-0" data-aos="fade-left" data-aos-duration="1200">
+                        
+                        <!-- Main Image Container with rounded borders like screenshot -->
+                        <div class="hero-img-bg animate-breathe">
+                            <!-- UPDATED HOME IMAGE -->
+                            <img src="https://i.ibb.co/vCDSdWbd/image.png" alt="Student Success" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-orange-900/30 to-transparent"></div>
                         </div>
 
-                        <div class="stat-card hidden md:flex" style="top: 5%; left: -5%; width: 240px; animation-delay: 0s;">
+                        <!-- FOMO Card 1: Scarcity (Top Left) -->
+                        <div class="stat-card card-scarcity">
                             <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 shrink-0">
                                 <i class="fa-solid fa-fire-flame-curved text-lg animate-pulse"></i>
                             </div>
@@ -471,7 +489,8 @@
                             </div>
                         </div>
 
-                        <div class="stat-card" style="top: 45%; right: -5%; width: 260px; animation-delay: 1.5s;">
+                        <!-- FOMO Card 2: Social Proof (Middle Right) -->
+                        <div class="stat-card card-social">
                             <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
                                 <i class="fa-solid fa-plane-departure text-lg"></i>
                             </div>
@@ -481,7 +500,8 @@
                             </div>
                         </div>
 
-                        <div class="stat-card hidden md:flex" style="bottom: 10%; left: 0%; width: 230px; animation-delay: 0.7s;">
+                        <!-- FOMO Card 3: Urgency (Bottom Left) -->
+                        <div class="stat-card card-urgency">
                             <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 shrink-0">
                                 <i class="fa-solid fa-hourglass-half text-lg animate-pulse"></i>
                             </div>
@@ -590,14 +610,16 @@
                     <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-slate-900">Top Destinations</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                         <div onclick="openDestinationModal('USA')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="100">
-                            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <!-- UPDATED USA IMAGE -->
+                            <img src="https://thumbs.dreamstime.com/b/princeton-university-one-famous-american-universities-49043534.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent flex flex-col justify-end p-6">
                                 <h3 class="text-xl md:text-2xl font-bold text-white">USA</h3>
                                 <p class="text-orange-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
                             </div>
                         </div>
                         <div onclick="openDestinationModal('UK')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <!-- UPDATED UK IMAGE -->
+                            <img src="https://w0.peakpx.com/wallpaper/592/1008/HD-wallpaper-university-of-cambridge-university-buildings-old-universities-cambridge-cityscape-cambridge-england-united-kingdom.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent flex flex-col justify-end p-6">
                                 <h3 class="text-xl md:text-2xl font-bold text-white">UK</h3>
                                 <p class="text-blue-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
@@ -668,7 +690,8 @@
                         <p class="text-slate-600 leading-relaxed">To be India's most trusted global education gateway, fostering a community of innovative leaders equipped with international perspectives.</p>
                     </div>
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Team meeting" class="w-full h-full object-cover">
+                        <!-- UPDATED ABOUT US IMAGE -->
+                        <img src="https://i.ibb.co/DfYHDsXQ/image.png" alt="Team meeting" class="w-full h-full object-cover bg-white">
                     </div>
                 </div>
             </section>
@@ -1071,16 +1094,17 @@
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
         // --- 5. DATA MAPS ---
+        // UPDATED USA AND UK IMAGES HERE
         const destinations = {
             'USA': {
-                image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                image: 'https://thumbs.dreamstime.com/b/princeton-university-one-famous-american-universities-49043534.jpg',
                 subtitle: 'Ivy Leagues & Innovation', budget: '$30k - $60k / year', safety: 'Moderate - High', salary: '$85,000 / year',
                 job: 'Software Engineer / Data Scientist', universities: ['MIT', 'Stanford University', 'Harvard University', 'Caltech', 'University of Texas at Austin'],
                 courses: ['Computer Science', 'Business Analytics', 'Biotechnology', 'Mechanical Eng.'],
                 social: '#USALife #StudentVisa #OPT - Trending topics include F1 Visa slot updates and OPT extension rules.'
             },
             'UK': {
-                image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+                image: 'https://w0.peakpx.com/wallpaper/592/1008/HD-wallpaper-university-of-cambridge-university-buildings-old-universities-cambridge-cityscape-cambridge-england-united-kingdom.jpg',
                 subtitle: 'Heritage & Academic Excellence', budget: '£20k - £40k / year', safety: 'High', salary: '£45,000 / year',
                 job: 'Finance / Investment Banking', universities: ['University of Oxford', 'University of Cambridge', 'Imperial College London', 'LSE', 'UCL'],
                 courses: ['Law', 'Finance', 'Medicine', 'Management'],
