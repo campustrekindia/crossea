@@ -3,100 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Enhanced SEO Meta Tags -->
     <meta name="description" content="Crossea Abroad Education provides expert counseling, visa assistance, and test prep to help you get into top global universities in the USA, UK, Canada, and Australia.">
     <meta name="keywords" content="study abroad, overseas education, study in USA, study in UK, student visa, education consultants, Hyderabad">
     <title>Crossea Abroad Education | Your Gateway to Global Learning</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px; 
-        }
-
-        /* Custom Scrollbar */
+        body { font-family: 'Outfit', sans-serif; overflow-x: hidden; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #fff7ed; }
         ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
 
-        /* Animated Background Theme */
         .theme-bg {
             background: linear-gradient(-45deg, #fff7ed, #ffedd5, #fdba74, #ffffff);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             position: relative;
         }
-
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Floating Blobs */
-        .blob {
-            position: absolute;
-            filter: blur(60px);
-            border-radius: 50%;
-            z-index: 0;
-            opacity: 0.6;
-            animation: float 10s infinite ease-in-out;
-        }
+        .blob { position: absolute; filter: blur(60px); border-radius: 50%; z-index: 0; opacity: 0.6; animation: float 10s infinite ease-in-out; }
         .blob-orange { background: rgba(234, 88, 12, 0.3); }
         .blob-red { background: rgba(220, 38, 38, 0.2); }
         .blob-green { background: rgba(22, 163, 74, 0.2); }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(30px, -30px); }
-        }
-
-        /* Marquee / Ticker Styles */
-        .marquee-container {
-            width: 100%;
-            background: #ea580c; 
-            color: white;
-            overflow: hidden;
-            position: relative;
-            padding: 10px 0;
-            z-index: 30;
-            white-space: nowrap;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-        }
-        .marquee-item {
-            display: inline-flex;
-            align-items: center;
-            margin-right: 4rem;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
+        .marquee-container { width: 100%; background: #ea580c; color: white; overflow: hidden; position: relative; padding: 10px 0; z-index: 30; white-space: nowrap; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
+        .marquee-item { display: inline-flex; align-items: center; margin-right: 4rem; font-weight: 600; font-size: 0.85rem; }
         @media (min-width: 768px) { .marquee-item { font-size: 0.95rem; } }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-        /* News Slider Animation */
         .news-slider-container { overflow: hidden; white-space: nowrap; position: relative; }
         .news-track { display: inline-flex; animation: scroll 30s linear infinite; }
         .news-card { white-space: normal; flex-shrink: 0; width: 280px; margin-right: 20px; transition: transform 0.3s; }
@@ -104,108 +51,138 @@
         .news-card:hover { transform: scale(1.02); }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Instagram Slider Animation */
         .insta-slider-container { overflow: hidden; white-space: nowrap; position: relative; padding: 20px 0; }
         .insta-track { display: inline-flex; animation: instaScroll 40s linear infinite; }
-        .insta-card { 
-            flex-shrink: 0; width: 250px; height: 250px; margin-right: 20px; 
-            border-radius: 20px; overflow: hidden; position: relative; 
-            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15); transition: transform 0.3s; 
-        }
+        .insta-card { flex-shrink: 0; width: 250px; height: 250px; margin-right: 20px; border-radius: 20px; overflow: hidden; position: relative; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15); transition: transform 0.3s; }
         .insta-card:hover { transform: translateY(-10px) scale(1.02); }
         @keyframes instaScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Hero Right Side Animations */
+        /* ============================
+           HERO DASHBOARD - DESKTOP
+        ============================ */
         .hero-dashboard {
-            position: relative; width: 100%; height: 380px; display: flex; align-items: center; justify-content: center; margin: 0 auto; max-width: 500px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
+
+        /* Desktop: fixed tall layout with floating cards */
         @media (min-width: 1024px) {
-            .hero-dashboard { height: 500px; max-width: none; }
+            .hero-dashboard {
+                height: 500px;
+                max-width: none;
+            }
         }
+
         .hero-img-bg {
-            position: absolute; width: 85%; height: 90%; border-radius: 32px; overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.3); border: 6px solid white; z-index: 10;
+            position: absolute;
+            width: 85%;
+            height: 90%;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.3);
+            border: 6px solid white;
+            z-index: 10;
         }
+
+        /* On mobile, hero-img-bg is NOT absolute — handled by mobile layout */
+        @media (max-width: 1023px) {
+            .hero-img-bg {
+                position: relative;
+                width: 100%;
+                height: 300px;
+                border-radius: 24px;
+            }
+        }
+
         @keyframes breathe {
             0%, 100% { transform: translateY(0) scale(1); }
             50% { transform: translateY(-12px) scale(1.01); }
         }
         .animate-breathe { animation: breathe 6s ease-in-out infinite; }
 
-        .stat-card {
-            position: absolute; background: white; border-radius: 16px; padding: 12px 16px;
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15); z-index: 30; display: flex; align-items: center; gap: 12px;
-            transition: transform 0.3s ease; animation: floatCard 6s ease-in-out infinite;
+        /* Desktop floating stat cards */
+        .stat-card-floating {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 12px 16px;
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.15);
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+            animation: floatCard 6s ease-in-out infinite;
         }
-        .stat-card:hover { transform: scale(1.05); z-index: 40; }
+        .stat-card-floating:hover { transform: scale(1.05); z-index: 40; }
         @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
+        /* Mobile stat grid cards */
+        .stat-card-grid {
+            background: white;
+            border-radius: 16px;
+            padding: 14px 16px;
+            box-shadow: 0 6px 16px -4px rgba(234, 88, 12, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #ffedd5;
+        }
+
+        /* Hero visibility — avoids conflict with .hidden { !important } */
+        .hero-mobile-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .hero-desktop-block {
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            .hero-mobile-block {
+                display: none;
+            }
+            .hero-desktop-block {
+                display: flex;
+            }
+        }
+
         /* Modal Styles */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); z-index: 100;
-            display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); z-index: 100; display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-card {
-            background: white; width: 95%; max-width: 900px; max-height: 90vh; overflow-y: auto;
-            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.25);
-            transform: scale(0.9); transition: transform 0.3s ease; position: relative; border: 1px solid #ffedd5;
-        }
+        .modal-card { background: white; width: 95%; max-width: 900px; max-height: 90vh; overflow-y: auto; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(234,88,12,0.25); transform: scale(0.9); transition: transform 0.3s ease; position: relative; border: 1px solid #ffedd5; }
         .modal-overlay.active .modal-card { transform: scale(1); }
         .lead-card { max-width: 450px; padding: 20px; }
         @media (min-width: 768px) { .lead-card { padding: 30px; } .modal-card { width: 90%; } }
 
-        /* Input Fields */
         .input-group { position: relative; margin-bottom: 1.5rem; }
-        .input-field {
-            width: 100%; padding: 12px; border: 2px solid #fed7aa; border-radius: 8px; outline: none;
-            transition: border-color 0.3s; background: transparent;
-        }
+        .input-field { width: 100%; padding: 12px; border: 2px solid #fed7aa; border-radius: 8px; outline: none; transition: border-color 0.3s; background: transparent; }
         .input-field:focus { border-color: #ea580c; }
-        .input-label {
-            position: absolute; left: 12px; top: 14px; color: #9a3412; pointer-events: none;
-            transition: 0.2s; background: white; padding: 0 4px;
-        }
-        .input-field:focus ~ .input-label, .input-field:not(:placeholder-shown) ~ .input-label {
-            top: -10px; font-size: 0.8rem; color: #ea580c; font-weight: 600;
-        }
+        .input-label { position: absolute; left: 12px; top: 14px; color: #9a3412; pointer-events: none; transition: 0.2s; background: white; padding: 0 4px; }
+        .input-field:focus ~ .input-label, .input-field:not(:placeholder-shown) ~ .input-label { top: -10px; font-size: 0.8rem; color: #ea580c; font-weight: 600; }
         
         .hidden { display: none !important; }
 
-        /* Navbar Active State */
         .nav-link { position: relative; cursor: pointer; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
-            background-color: #ea580c; transition: width 0.3s ease;
-        }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #ea580c; transition: width 0.3s ease; }
         .nav-link.active::after { width: 100%; }
         .nav-link.active { color: #ea580c; }
 
-        /* Mobile Menu */
         #mobileMenu { transform: translateX(100%); transition: transform 0.3s ease-in-out; }
         #mobileMenu.open { transform: translateX(0); }
 
-        /* SPA Page Animations */
         .page-content { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Success Animation Classes */
         .success-pop { animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         @keyframes popIn { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .success-checkmark {
-            width: 80px; height: 80px; border-radius: 50%; display: block; stroke-width: 2; stroke: #22c55e;
-            stroke-miterlimit: 10; box-shadow: inset 0px 0px 0px #22c55e;
-            animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; margin: 0 auto 20px auto;
-        }
-        .success-checkmark__circle {
-            stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #22c55e; fill: none;
-            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-        }
-        .success-checkmark__check {
-            transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48;
-            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-        }
+        .success-checkmark { width: 80px; height: 80px; border-radius: 50%; display: block; stroke-width: 2; stroke: #22c55e; stroke-miterlimit: 10; box-shadow: inset 0px 0px 0px #22c55e; animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; margin: 0 auto 20px auto; }
+        .success-checkmark__circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: #22c55e; fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .success-checkmark__check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
         @keyframes stroke { 100% { stroke-dashoffset: 0; } }
         @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
         @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px rgba(34, 197, 94, 0.1); } }
@@ -233,7 +210,7 @@
                         <label for="fullName" class="input-label">Full Name</label>
                     </div>
                     <div class="input-group">
-                        <input type="tel" name="Mobile" id="mobileNumber" class="input-field" placeholder=" " required pattern="[0-9]{10,15}" title="Please enter a valid phone number">
+                        <input type="tel" name="Mobile" id="mobileNumber" class="input-field" placeholder=" " required pattern="[0-9]{10,15}">
                         <label for="mobileNumber" class="input-label">Mobile Number</label>
                     </div>
                     <div class="input-group">
@@ -243,27 +220,14 @@
                     <div class="mb-4">
                         <label class="block text-sm font-medium text-slate-700 mb-2">Interested Countries</label>
                         <div class="grid grid-cols-2 gap-2">
-                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition">
-                                <input type="checkbox" name="Countries" value="USA" class="accent-orange-600">
-                                <span class="text-sm">USA 🇺🇸</span>
-                            </label>
-                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition">
-                                <input type="checkbox" name="Countries" value="UK" class="accent-orange-600">
-                                <span class="text-sm">UK 🇬🇧</span>
-                            </label>
-                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition">
-                                <input type="checkbox" name="Countries" value="Canada" class="accent-orange-600">
-                                <span class="text-sm">Canada 🇨🇦</span>
-                            </label>
-                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition">
-                                <input type="checkbox" name="Countries" value="Australia" class="accent-orange-600">
-                                <span class="text-sm">Australia 🇦🇺</span>
-                            </label>
+                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition"><input type="checkbox" name="Countries" value="USA" class="accent-orange-600"><span class="text-sm">USA 🇺🇸</span></label>
+                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition"><input type="checkbox" name="Countries" value="UK" class="accent-orange-600"><span class="text-sm">UK 🇬🇧</span></label>
+                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition"><input type="checkbox" name="Countries" value="Canada" class="accent-orange-600"><span class="text-sm">Canada 🇨🇦</span></label>
+                            <label class="flex items-center space-x-2 border p-2 rounded hover:bg-orange-50 cursor-pointer transition"><input type="checkbox" name="Countries" value="Australia" class="accent-orange-600"><span class="text-sm">Australia 🇦🇺</span></label>
                         </div>
                     </div>
                     <button type="submit" id="btnFinalSubmit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 rounded-lg transition shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2">
-                        <span>Get Free Counseling</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Get Free Counseling</span><i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </form>
             </div>
@@ -274,7 +238,7 @@
                         <path class="success-checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
                     </svg>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
-                    <p class="text-slate-600">Our expert counselor will contact you shortly to begin your journey.</p>
+                    <p class="text-slate-600">Our expert counselor will contact you shortly.</p>
                     <button onclick="closeModal('leadModal')" class="mt-8 px-6 py-2 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition">Close Window</button>
                 </div>
             </div>
@@ -287,14 +251,10 @@
             <button onclick="closeModal('serviceModal')" class="absolute top-4 right-4 text-orange-400 hover:text-orange-600 transition z-10 w-8 h-8 flex items-center justify-center bg-orange-50 rounded-full">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <div id="modalServiceIcon" class="w-16 h-16 mx-auto bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-4">
-                <i class="fa-solid fa-user-graduate"></i>
-            </div>
+            <div id="modalServiceIcon" class="w-16 h-16 mx-auto bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-3xl mb-4"></div>
             <h2 id="modalServiceTitle" class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Service Title</h2>
             <div class="w-16 h-1 bg-orange-500 mx-auto rounded-full mb-6"></div>
-            <p id="modalServiceDesc" class="text-slate-600 leading-relaxed text-sm md:text-base mb-6 text-left">
-                Detailed description goes here.
-            </p>
+            <p id="modalServiceDesc" class="text-slate-600 leading-relaxed text-sm md:text-base mb-6 text-left"></p>
             <ul id="modalServiceList" class="text-left space-y-3 mb-8 text-sm md:text-base text-slate-700 font-medium"></ul>
             <button onclick="closeModal('serviceModal'); document.getElementById('consultation').scrollIntoView();" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition shadow-lg">
                 Book Free Consultation
@@ -320,41 +280,18 @@
                 </div>
                 <div class="md:col-span-8 p-6 md:p-8 bg-white rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
                     <div class="grid grid-cols-2 gap-3 md:gap-4 mb-8">
-                        <div class="p-3 md:p-4 bg-orange-50 rounded-xl border border-orange-100">
-                            <div class="text-orange-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-sack-dollar"></i> Avg Budget</div>
-                            <p id="modalBudget" class="font-bold text-slate-800 text-sm md:text-base">$30k - $50k / year</p>
-                        </div>
-                        <div class="p-3 md:p-4 bg-blue-50 rounded-xl border border-blue-100">
-                            <div class="text-blue-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-shield-halved"></i> Safety Index</div>
-                            <p id="modalSafety" class="font-bold text-slate-800 text-sm md:text-base">High</p>
-                        </div>
-                        <div class="p-3 md:p-4 bg-green-50 rounded-xl border border-green-100">
-                            <div class="text-green-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-briefcase"></i> Avg Salary</div>
-                            <p id="modalSalary" class="font-bold text-slate-800 text-sm md:text-base">$85,000 / year</p>
-                        </div>
-                        <div class="p-3 md:p-4 bg-red-50 rounded-xl border border-red-100">
-                            <div class="text-red-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-fire"></i> Top Job</div>
-                            <p id="modalJob" class="font-bold text-slate-800 text-sm md:text-base">Software Engineer</p>
-                        </div>
+                        <div class="p-3 md:p-4 bg-orange-50 rounded-xl border border-orange-100"><div class="text-orange-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-sack-dollar"></i> Avg Budget</div><p id="modalBudget" class="font-bold text-slate-800 text-sm md:text-base"></p></div>
+                        <div class="p-3 md:p-4 bg-blue-50 rounded-xl border border-blue-100"><div class="text-blue-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-shield-halved"></i> Safety Index</div><p id="modalSafety" class="font-bold text-slate-800 text-sm md:text-base"></p></div>
+                        <div class="p-3 md:p-4 bg-green-50 rounded-xl border border-green-100"><div class="text-green-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-briefcase"></i> Avg Salary</div><p id="modalSalary" class="font-bold text-slate-800 text-sm md:text-base"></p></div>
+                        <div class="p-3 md:p-4 bg-red-50 rounded-xl border border-red-100"><div class="text-red-600 mb-1 text-xs md:text-base"><i class="fa-solid fa-fire"></i> Top Job</div><p id="modalJob" class="font-bold text-slate-800 text-sm md:text-base"></p></div>
                     </div>
                     <div class="space-y-6">
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-orange-500 pl-3">Top Universities</h3>
-                            <ul id="modalUniversities" class="list-disc pl-5 space-y-1 text-slate-600 text-sm md:text-base"></ul>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-blue-500 pl-3">Trending Courses</h3>
-                            <div id="modalCourses" class="flex flex-wrap gap-2 text-sm md:text-base"></div>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-pink-500 pl-3">Social Trend</h3>
-                            <p id="modalSocial" class="text-slate-600 italic bg-slate-50 p-3 rounded-lg text-sm md:text-base"></p>
-                        </div>
+                        <div><h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-orange-500 pl-3">Top Universities</h3><ul id="modalUniversities" class="list-disc pl-5 space-y-1 text-slate-600 text-sm md:text-base"></ul></div>
+                        <div><h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-blue-500 pl-3">Trending Courses</h3><div id="modalCourses" class="flex flex-wrap gap-2 text-sm md:text-base"></div></div>
+                        <div><h3 class="font-bold text-lg text-slate-900 mb-3 border-l-4 border-pink-500 pl-3">Social Trend</h3><p id="modalSocial" class="text-slate-600 italic bg-slate-50 p-3 rounded-lg text-sm md:text-base"></p></div>
                     </div>
                     <div class="mt-8 flex justify-end">
-                        <a href="#consultation" onclick="closeModal('destinationModal')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition">
-                            Apply for this Destination
-                        </a>
+                        <a href="#consultation" onclick="closeModal('destinationModal')" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition">Apply for this Destination</a>
                     </div>
                 </div>
             </div>
@@ -379,14 +316,12 @@
         </div>
     </div>
 
-    <!-- NAVIGATION (SPA Routing Enabled) -->
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-orange-100 py-3 top-0 shadow-sm" id="navbar">
         <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
             <a href="#" onclick="navigate('home')" class="flex items-center shrink-0">
                 <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-12 md:h-16 w-auto object-contain transition-all">
             </a>
-            
-            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-4 lg:gap-5 xl:gap-6 font-semibold text-slate-600 text-[13px] lg:text-sm xl:text-base ml-auto mr-2 lg:mr-4">
                 <a onclick="navigate('home')" class="nav-link active cursor-pointer whitespace-nowrap" data-target="home">Home</a>
                 <a onclick="navigate('about')" class="nav-link cursor-pointer whitespace-nowrap" data-target="about">About Us</a>
@@ -396,13 +331,9 @@
                 <a onclick="navigate('careers')" class="nav-link cursor-pointer whitespace-nowrap" data-target="careers">Careers</a>
                 <a href="blog.html" class="nav-link cursor-pointer whitespace-nowrap">Blog</a>
             </div>
-            
-            <!-- Purple Book Consultation Button -->
             <a href="#consultation" class="hidden md:flex ml-2 px-5 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:opacity-90 transition shadow-lg shadow-purple-500/30 items-center gap-2 shrink-0 text-sm font-bold">
                 <i class="fa-regular fa-calendar-check"></i> <span class="hidden xl:inline">Book Consultation</span><span class="inline xl:hidden">Book Now</span>
             </a>
-
-            <!-- Mobile Hamburger Button -->
             <button class="md:hidden ml-auto text-2xl text-slate-800 p-2 focus:outline-none hover:text-orange-600 transition" onclick="toggleMobileMenu()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -413,9 +344,7 @@
     <div id="mobileMenu" class="fixed inset-0 bg-white z-[60] flex flex-col p-6 shadow-2xl md:hidden overflow-y-auto">
         <div class="flex justify-between items-center mb-8 pb-4 border-b border-orange-100">
             <img src="https://i.ibb.co/twdmZMTM/Untitled-design-4.png" alt="Crossea Logo" class="h-10 w-auto">
-            <button onclick="toggleMobileMenu()" class="text-3xl text-slate-500 hover:text-orange-600 focus:outline-none p-2 rounded-full hover:bg-orange-50 transition">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <button onclick="toggleMobileMenu()" class="text-3xl text-slate-500 hover:text-orange-600 focus:outline-none p-2 rounded-full hover:bg-orange-50 transition"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="flex flex-col gap-2 text-lg font-bold text-slate-700">
             <a onclick="navigate('home')" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4 transition cursor-pointer"><i class="fa-solid fa-house text-orange-400 w-6"></i> Home</a>
@@ -425,7 +354,6 @@
             <a onclick="navigate('community')" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4 transition cursor-pointer"><i class="fa-solid fa-users text-orange-400 w-6"></i> Community</a>
             <a onclick="navigate('careers')" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4 transition cursor-pointer"><i class="fa-solid fa-briefcase text-orange-400 w-6"></i> Careers</a>
             <a href="blog.html" class="p-4 rounded-xl hover:bg-orange-50 hover:text-orange-600 flex items-center gap-4 transition cursor-pointer"><i class="fa-solid fa-blog text-orange-400 w-6"></i> Blog</a>
-            
             <div class="mt-6 pt-6 border-t border-orange-100">
                 <a href="#consultation" onclick="toggleMobileMenu()" class="w-full flex justify-center items-center gap-2 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl text-center shadow-lg shadow-purple-500/30">
                     <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
@@ -437,9 +365,7 @@
     <!-- MAIN APP CONTAINER -->
     <main class="pt-[72px] md:pt-[90px]">
 
-        <!-- ==========================================
-             PAGE 1: HOME
-        =========================================== -->
+        <!-- PAGE 1: HOME -->
         <div id="page-home" class="page-content block">
             
             <!-- MARQUEE STRIP -->
@@ -462,12 +388,13 @@
 
             <!-- HERO SECTION -->
             <section class="theme-bg min-h-screen md:min-h-[calc(100vh-120px)] flex items-center pt-8 pb-12 relative overflow-hidden">
-                <!-- Soft Glow Backdrops -->
                 <div class="blob blob-orange w-64 h-64 md:w-96 md:h-96 top-0 left-0"></div>
-                <div class="blob blob-red w-60 h-60 md:w-80 md:h-80 bottom-20 right-20 animation-delay-2000"></div>
-                <div class="blob blob-green w-48 h-48 md:w-64 md:h-64 top-40 right-1/2 animation-delay-4000"></div>
+                <div class="blob blob-red w-60 h-60 md:w-80 md:h-80 bottom-20 right-20"></div>
+                <div class="blob blob-green w-48 h-48 md:w-64 md:h-64 top-40 right-1/2"></div>
 
-                <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center relative z-10">
+                    
+                    <!-- LEFT: Text Content -->
                     <div data-aos="fade-right" data-aos-duration="1000" class="text-center lg:text-left mt-4">
                         <div class="inline-block px-4 py-1 border border-orange-300 rounded-full text-orange-700 text-sm mb-6 bg-white/40 backdrop-blur-sm font-semibold">
                             🚀 #1 Study Abroad Consultants
@@ -490,66 +417,129 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT SIDE - RESPONSIVE RECTANGULAR LAYOUT WITH CARDS -->
-                    <div class="hero-dashboard mt-12 lg:mt-0" data-aos="fade-left" data-aos-duration="1200">
-                        
-                        <!-- Main Image Container -->
-                        <div class="hero-img-bg animate-breathe">
-                            <img src="https://i.ibb.co/vCDSdWbd/image.png" alt="Student Success" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent"></div>
-                        </div>
+                    <!-- RIGHT: Hero Visual -->
+                    <div data-aos="fade-left" data-aos-duration="1200" class="mt-6 lg:mt-0">
 
-                        <!-- Card 1: Visa Success (Left Middle) -->
-                        <div class="stat-card" style="top: 35%; left: -8%; width: 220px; animation-delay: 0s;">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
-                                <i class="fa-solid fa-check text-lg"></i>
+                        <!-- ===== MOBILE LAYOUT (hidden on lg+) ===== -->
+                        <div class="hero-mobile-block">
+
+                            <!-- Main image — full width, rounded, clean -->
+                            <div class="w-full h-64 rounded-3xl overflow-hidden shadow-2xl shadow-orange-200 border-4 border-white animate-breathe">
+                                <img src="https://i.ibb.co/vCDSdWbd/image.png" alt="Student Success" class="w-full h-full object-cover">
                             </div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-800">98% Visa Success</p>
-                                <p class="text-xs text-slate-500 font-semibold">Proven Track Record</p>
-                                <div class="w-full h-1 bg-gray-100 rounded-full mt-1.5 overflow-hidden">
-                                    <div class="h-full bg-green-500 rounded-full" style="width: 98%"></div>
+
+                            <!-- 2x2 stat cards grid -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <!-- Card 1: Visa Success -->
+                                <div class="stat-card-grid">
+                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                                        <i class="fa-solid fa-check text-base"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="font-bold text-sm text-slate-800 leading-tight">98% Visa</p>
+                                        <p class="text-xs text-slate-500 font-medium">Success Rate</p>
+                                        <div class="w-full h-1 bg-gray-100 rounded-full mt-1 overflow-hidden">
+                                            <div class="h-full bg-green-500 rounded-full" style="width: 98%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Partners -->
+                                <div class="stat-card-grid">
+                                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 shrink-0">
+                                        <i class="fa-solid fa-building-columns text-base"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="font-bold text-sm text-slate-800 leading-tight">500+</p>
+                                        <p class="text-xs text-slate-500 font-medium">Universities</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Students Placed -->
+                                <div class="stat-card-grid">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                                        <i class="fa-solid fa-users text-base"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="font-bold text-sm text-slate-800 leading-tight">10k+ Placed</p>
+                                        <p class="text-xs text-slate-500 font-medium">Happy Students</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4: Support -->
+                                <div class="stat-card-grid">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
+                                        <i class="fa-solid fa-headset text-base"></i>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="font-bold text-sm text-slate-800 leading-tight">24/7 Support</p>
+                                        <p class="text-xs text-slate-500 font-medium">Always here</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Card 2: Partners (Top Right) -->
-                        <div class="stat-card" style="top: 10%; right: -5%; width: 200px; animation-delay: 1.5s;">
-                            <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 shrink-0">
-                                <i class="fa-solid fa-building-columns text-lg"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-800">500+ Partners</p>
-                                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Top Universities</p>
-                            </div>
-                        </div>
 
-                        <!-- Card 3: Support (Bottom Left) -->
-                        <div class="stat-card" style="bottom: 12%; left: -2%; width: 200px; animation-delay: 0.7s;">
-                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
-                                <i class="fa-solid fa-headset text-lg"></i>
+                        <!-- ===== DESKTOP LAYOUT (hidden on mobile) ===== -->
+                        <div class="hero-dashboard hero-desktop-block">
+                            <!-- Main Image Container -->
+                            <div class="hero-img-bg animate-breathe">
+                                <img src="https://i.ibb.co/vCDSdWbd/image.png" alt="Student Success" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent"></div>
                             </div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-800">24/7 Support</p>
-                                <p class="text-xs text-slate-500">Always here for you</p>
-                            </div>
-                        </div>
 
-                        <!-- Card 4: Placed (Bottom Right) -->
-                        <div class="stat-card" style="bottom: 25%; right: -8%; width: 210px; animation-delay: 2s;">
-                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
-                                <i class="fa-solid fa-users text-lg"></i>
+                            <!-- Floating Card 1: Visa Success -->
+                            <div class="stat-card-floating" style="top: 35%; left: -8%; width: 220px; animation-delay: 0s;">
+                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                                    <i class="fa-solid fa-check text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">98% Visa Success</p>
+                                    <p class="text-xs text-slate-500 font-semibold">Proven Track Record</p>
+                                    <div class="w-full h-1 bg-gray-100 rounded-full mt-1.5 overflow-hidden">
+                                        <div class="h-full bg-green-500 rounded-full" style="width: 98%"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-bold text-sm text-slate-800">10k+ Placed</p>
-                                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Happy Students</p>
-                                <div class="flex -space-x-2 mt-1">
-                                    <div class="w-5 h-5 rounded-full bg-gray-300 border border-white"></div>
-                                    <div class="w-5 h-5 rounded-full bg-gray-400 border border-white"></div>
-                                    <div class="w-5 h-5 rounded-full bg-gray-500 border border-white"></div>
+                            
+                            <!-- Floating Card 2: Partners -->
+                            <div class="stat-card-floating" style="top: 10%; right: -5%; width: 200px; animation-delay: 1.5s;">
+                                <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 shrink-0">
+                                    <i class="fa-solid fa-building-columns text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">500+ Partners</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Top Universities</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Card 3: Support -->
+                            <div class="stat-card-floating" style="bottom: 12%; left: -2%; width: 200px; animation-delay: 0.7s;">
+                                <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 shrink-0">
+                                    <i class="fa-solid fa-headset text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">24/7 Support</p>
+                                    <p class="text-xs text-slate-500">Always here for you</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Card 4: Placed -->
+                            <div class="stat-card-floating" style="bottom: 25%; right: -8%; width: 210px; animation-delay: 2s;">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+                                    <i class="fa-solid fa-users text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm text-slate-800">10k+ Placed</p>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Happy Students</p>
+                                    <div class="flex -space-x-2 mt-1">
+                                        <div class="w-5 h-5 rounded-full bg-gray-300 border border-white"></div>
+                                        <div class="w-5 h-5 rounded-full bg-gray-400 border border-white"></div>
+                                        <div class="w-5 h-5 rounded-full bg-gray-500 border border-white"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -563,22 +553,10 @@
                 </div>
                 <div class="news-slider-container">
                     <div class="news-track" id="newsTrack">
-                        <div class="news-card p-4 bg-orange-50 rounded-xl border border-orange-100 shadow-sm">
-                            <span class="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-1 rounded">VISA UPDATE</span>
-                            <h3 class="font-bold text-slate-800 mt-2 text-sm">US Student Visa slots opening soon for Fall 2024 intake.</h3>
-                        </div>
-                        <div class="news-card p-4 bg-blue-50 rounded-xl border border-blue-100 shadow-sm">
-                            <span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">UK RULES</span>
-                            <h3 class="font-bold text-slate-800 mt-2 text-sm">New dependent visa rules announced for UK masters students.</h3>
-                        </div>
-                        <div class="news-card p-4 bg-green-50 rounded-xl border border-green-100 shadow-sm">
-                            <span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded">SCHOLARSHIP</span>
-                            <h3 class="font-bold text-slate-800 mt-2 text-sm">Melbourne University announces 100% scholarships for Indian students.</h3>
-                        </div>
-                        <div class="news-card p-4 bg-red-50 rounded-xl border border-red-100 shadow-sm">
-                            <span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded">CANADA PR</span>
-                            <h3 class="font-bold text-slate-800 mt-2 text-sm">Ontario PNP draw invites 2000+ international graduates.</h3>
-                        </div>
+                        <div class="news-card p-4 bg-orange-50 rounded-xl border border-orange-100 shadow-sm"><span class="text-xs font-bold text-orange-600 bg-orange-100 px-2 py-1 rounded">VISA UPDATE</span><h3 class="font-bold text-slate-800 mt-2 text-sm">US Student Visa slots opening soon for Fall 2024 intake.</h3></div>
+                        <div class="news-card p-4 bg-blue-50 rounded-xl border border-blue-100 shadow-sm"><span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded">UK RULES</span><h3 class="font-bold text-slate-800 mt-2 text-sm">New dependent visa rules announced for UK masters students.</h3></div>
+                        <div class="news-card p-4 bg-green-50 rounded-xl border border-green-100 shadow-sm"><span class="text-xs font-bold text-green-600 bg-green-100 px-2 py-1 rounded">SCHOLARSHIP</span><h3 class="font-bold text-slate-800 mt-2 text-sm">Melbourne University announces 100% scholarships for Indian students.</h3></div>
+                        <div class="news-card p-4 bg-red-50 rounded-xl border border-red-100 shadow-sm"><span class="text-xs font-bold text-red-600 bg-red-100 px-2 py-1 rounded">CANADA PR</span><h3 class="font-bold text-slate-800 mt-2 text-sm">Ontario PNP draw invites 2000+ international graduates.</h3></div>
                     </div>
                 </div>
             </section>
@@ -588,54 +566,41 @@
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
                         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Premium Services</h2>
-                        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">We provide end-to-end support to ensure your journey to your dream university is smooth. Click a service to learn more.</p>
+                        <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">We provide end-to-end support to ensure your journey to your dream university is smooth.</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                        <!-- Cards calling openServiceModal() -->
-                        <div onclick="openServiceModal('career')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-orange-100 transition border border-orange-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-orange-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-user-graduate"></i>
-                            </div>
+                        <div onclick="openServiceModal('career')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-orange-100 transition border border-orange-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-orange-600 group-hover:text-white transition"><i class="fa-solid fa-user-graduate"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-orange-600 transition">Career Counseling</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Expert guidance to choose the right course and university based on your profile.</p>
                             <span class="text-orange-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                        <div onclick="openServiceModal('visa')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-blue-100 transition border border-blue-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-passport"></i>
-                            </div>
+                        <div onclick="openServiceModal('visa')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-blue-100 transition border border-blue-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-blue-600 group-hover:text-white transition"><i class="fa-solid fa-passport"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-blue-600 transition">Visa Assistance</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Comprehensive support for visa documentation, mock interviews, and application filing.</p>
                             <span class="text-blue-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                        <div onclick="openServiceModal('test')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-green-100 transition border border-green-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-green-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-pen-nib"></i>
-                            </div>
+                        <div onclick="openServiceModal('test')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-green-100 transition border border-green-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-green-600 group-hover:text-white transition"><i class="fa-solid fa-pen-nib"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-green-600 transition">Test Preparation</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Coaching for IELTS, TOEFL, GRE, and GMAT with experienced faculty and mock tests.</p>
                             <span class="text-green-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                         <div onclick="openServiceModal('scholarship')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-yellow-100 transition border border-yellow-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="400">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-yellow-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-hand-holding-dollar"></i>
-                            </div>
+                        <div onclick="openServiceModal('scholarship')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-yellow-100 transition border border-yellow-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-yellow-100 text-yellow-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-yellow-600 group-hover:text-white transition"><i class="fa-solid fa-hand-holding-dollar"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-yellow-600 transition">Scholarship Guidance</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">We help you identify and apply for merit-based scholarships and education loans.</p>
                             <span class="text-yellow-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                         <div onclick="openServiceModal('accommodation')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-red-100 transition border border-red-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="500">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-red-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-house-chimney"></i>
-                            </div>
+                        <div onclick="openServiceModal('accommodation')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-red-100 transition border border-red-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-red-600 group-hover:text-white transition"><i class="fa-solid fa-house-chimney"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-red-600 transition">Accommodation Support</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Find safe and affordable housing near your university before you even land.</p>
                             <span class="text-red-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
-                         <div onclick="openServiceModal('postarrival')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-indigo-100 transition border border-indigo-100 group cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="600">
-                            <div class="w-12 h-12 md:w-14 md:h-14 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
-                                <i class="fa-solid fa-plane-arrival"></i>
-                            </div>
+                        <div onclick="openServiceModal('postarrival')" class="p-6 md:p-8 bg-white rounded-2xl hover:shadow-xl hover:shadow-indigo-100 transition border border-indigo-100 group cursor-pointer" data-aos="fade-up" data-aos-delay="600">
+                            <div class="w-12 h-12 md:w-14 md:h-14 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-xl md:text-2xl mb-4 md:mb-6 group-hover:bg-indigo-600 group-hover:text-white transition"><i class="fa-solid fa-plane-arrival"></i></div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-slate-800 group-hover:text-indigo-600 transition">Post-Arrival Help</h3>
                             <p class="text-slate-600 text-sm leading-relaxed mb-4">Assistance with airport pickup, sim cards, bank accounts, and city orientation.</p>
                             <span class="text-indigo-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-2 transition-transform">Read more <i class="fa-solid fa-arrow-right"></i></span>
@@ -651,47 +616,32 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                         <div onclick="openDestinationModal('USA')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="100">
                             <img src="https://thumbs.dreamstime.com/b/princeton-university-one-famous-american-universities-49043534.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent flex flex-col justify-end p-6">
-                                <h3 class="text-xl md:text-2xl font-bold text-white">USA</h3>
-                                <p class="text-orange-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
-                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent flex flex-col justify-end p-6"><h3 class="text-xl md:text-2xl font-bold text-white">USA</h3><p class="text-orange-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p></div>
                         </div>
                         <div onclick="openDestinationModal('UK')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="200">
                             <img src="https://w0.peakpx.com/wallpaper/592/1008/HD-wallpaper-university-of-cambridge-university-buildings-old-universities-cambridge-cityscape-cambridge-england-united-kingdom.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent flex flex-col justify-end p-6">
-                                <h3 class="text-xl md:text-2xl font-bold text-white">UK</h3>
-                                <p class="text-blue-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
-                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent flex flex-col justify-end p-6"><h3 class="text-xl md:text-2xl font-bold text-white">UK</h3><p class="text-blue-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p></div>
                         </div>
                         <div onclick="openDestinationModal('Canada')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="300">
                             <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-red-900/90 to-transparent flex flex-col justify-end p-6">
-                                <h3 class="text-xl md:text-2xl font-bold text-white">Canada</h3>
-                                <p class="text-red-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
-                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-red-900/90 to-transparent flex flex-col justify-end p-6"><h3 class="text-xl md:text-2xl font-bold text-white">Canada</h3><p class="text-red-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p></div>
                         </div>
                         <div onclick="openDestinationModal('Australia')" class="group relative rounded-xl overflow-hidden h-64 md:h-80 cursor-pointer shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="400">
                             <img src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-gradient-to-t from-green-900/90 to-transparent flex flex-col justify-end p-6">
-                                <h3 class="text-xl md:text-2xl font-bold text-white">Australia</h3>
-                                <p class="text-green-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition md:translate-y-4 group-hover:translate-y-0">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p>
-                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-green-900/90 to-transparent flex flex-col justify-end p-6"><h3 class="text-xl md:text-2xl font-bold text-white">Australia</h3><p class="text-green-200 text-xs md:text-sm mt-2 opacity-100 md:opacity-0 group-hover:opacity-100 transition">Click for details <i class="fa-solid fa-arrow-right ml-1"></i></p></div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- LATEST IMMIGRATION UPDATES (BLOG INTEGRATION) -->
+            <!-- LATEST IMMIGRATION UPDATES -->
             <section class="py-20 bg-orange-50/50 border-t border-orange-100">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Latest Immigration Updates</h2>
                         <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Stay ahead with the latest global visa policies and university intake shifts.</p>
                     </div>
-
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        
-                        <!-- Post 1 (F-1 Visa) -->
                         <article class="article-card cursor-pointer bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group h-full" onclick="openArticleModal(this)">
                             <div class="block h-48 overflow-hidden rounded-t-xl relative">
                                 <img src="https://st2.depositphotos.com/3736675/7131/i/450/depositphotos_71311971-stock-photo-visa-stamp-travel.jpg" alt="Students Visa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -701,21 +651,16 @@
                             <div class="p-6 flex flex-col flex-grow">
                                 <span class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">F-1 Visa</span>
                                 <h3 class="article-title text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">US Consulates Open Early F-1 Slots for Fall 2026</h3>
-                                <p class="text-slate-600 text-sm mb-4 line-clamp-3">The US Mission in India has announced that bulk student visa appointment slots will begin opening in early May, addressing unprecedented applicant volumes.</p>
-                                
-                                <!-- HIDDEN FULL CONTENT FOR MODAL -->
+                                <p class="text-slate-600 text-sm mb-4 line-clamp-3">The US Mission in India has announced that bulk student visa appointment slots will begin opening in early May.</p>
                                 <div class="article-content hidden">
                                     <p class="mb-4">The US Mission in India has announced that bulk student visa appointment slots will begin opening in early May, addressing unprecedented applicant volumes for the Fall 2026 intake.</p>
-                                    <p>Students are heavily encouraged to ensure their I-20 documentation is fully processed and SEVIS fees are paid by mid-April. This allows them to immediately capitalize on early slot releases. Wait times are expected to spike severely by late June, causing potential delays for late applicants trying to reach campus by August.</p>
+                                    <p>Students are heavily encouraged to ensure their I-20 documentation is fully processed and SEVIS fees are paid by mid-April.</p>
                                 </div>
-
                                 <span class="mt-auto text-slate-900 font-bold text-sm group-hover:text-blue-600 transition flex items-center gap-1">Read Full Article <i class="fa-solid fa-angle-right"></i></span>
                             </div>
                         </article>
 
-                        <!-- Post 2 (TELEGRAM REDIRECT - NO MODAL) -->
                         <a href="https://t.me/crossea" target="_blank" class="bg-gradient-to-br from-blue-50 to-white rounded-xl border border-blue-200 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all flex flex-col group h-full relative overflow-hidden">
-                            <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-5 transition duration-300"></div>
                             <div class="block h-48 overflow-hidden rounded-t-xl relative">
                                 <img src="https://i.ibb.co/5xh9G3vx/image.png" alt="Telegram Community" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                                 <div class="absolute top-3 right-3 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded shadow uppercase"><i class="fa-brands fa-telegram mr-1"></i>Official</div>
@@ -723,12 +668,11 @@
                             <div class="p-6 flex flex-col flex-grow z-10">
                                 <span class="text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">Community</span>
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-3 group-hover:text-blue-600 transition leading-snug">Join our Telegram Channel for Instant Updates</h3>
-                                <p class="text-slate-600 text-sm mb-4">Get real-time visa bulletins, scholarship alerts, university deadlines, and direct answers from our expert counselors instantly on your phone.</p>
-                                <span class="mt-auto text-blue-600 font-bold text-sm hover:text-blue-800 transition flex items-center gap-2">Join Channel Now <i class="fa-solid fa-paper-plane"></i></span>
+                                <p class="text-slate-600 text-sm mb-4">Get real-time visa bulletins, scholarship alerts, and university deadlines instantly on your phone.</p>
+                                <span class="mt-auto text-blue-600 font-bold text-sm flex items-center gap-2">Join Channel Now <i class="fa-solid fa-paper-plane"></i></span>
                             </div>
                         </a>
 
-                        <!-- Post 3 (B1/B2 Visa) -->
                         <article class="article-card cursor-pointer bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group h-full" onclick="openArticleModal(this)">
                             <div class="block h-48 overflow-hidden rounded-t-xl relative">
                                 <img src="https://images.ctfassets.net/qr8kennq1pom/5HF0Mi5GfB262aIkDMhF7w/322628b6b897a980794712a8c50e7e60/students_in_london.jpg" alt="Travel and Tourist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -738,34 +682,24 @@
                             <div class="p-6 flex flex-col flex-grow">
                                 <span class="text-purple-600 font-bold text-xs uppercase tracking-wider mb-2">B1/B2 Visa</span>
                                 <h3 class="article-title text-lg font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition leading-snug">Disparities in US Tourist Visa Scheduling Times</h3>
-                                <p class="text-slate-600 text-sm mb-4 line-clamp-3">Data reveals massive gaps in wait times across consulates. Chennai currently offers appointments in 1 month, while Mumbai trails at 10 months.</p>
-                                
-                                <!-- HIDDEN FULL CONTENT FOR MODAL -->
+                                <p class="text-slate-600 text-sm mb-4 line-clamp-3">Chennai currently offers appointments in 1 month, while Mumbai trails at 10 months.</p>
                                 <div class="article-content hidden">
-                                    <p class="mb-4">Recent data releases indicate massive geographical gaps in wait times across US consulates in India. For example, Chennai currently offers B1/B2 appointments in roughly 1 month, while Mumbai severely trails at nearly 10 months.</p>
-                                    <p>Applicants for B1/B2 visas (business/tourist) should strategically consider applying at consulates with lighter caseloads if their travel is time-sensitive. However, applicants must keep in mind that language-specific interviews (e.g., Telugu, Marathi) might be restricted to particular regional locations.</p>
+                                    <p class="mb-4">Recent data releases indicate massive geographical gaps in wait times across US consulates in India.</p>
+                                    <p>Applicants for B1/B2 visas should strategically consider applying at consulates with lighter caseloads if their travel is time-sensitive.</p>
                                 </div>
-
                                 <span class="mt-auto text-slate-900 font-bold text-sm group-hover:text-purple-600 transition flex items-center gap-1">Read Full Article <i class="fa-solid fa-angle-right"></i></span>
                             </div>
                         </article>
-
                     </div>
-                    
                     <div class="text-center mt-10">
-                        <a href="blog.html" class="inline-flex items-center gap-2 font-bold text-orange-600 hover:text-orange-700 transition">
-                            View All News & Blog Articles <i class="fa-solid fa-arrow-right"></i>
-                        </a>
+                        <a href="blog.html" class="inline-flex items-center gap-2 font-bold text-orange-600 hover:text-orange-700 transition">View All News & Blog Articles <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- ==========================================
-             PAGE 2: ABOUT US
-        =========================================== -->
+        <!-- PAGE 2: ABOUT US -->
         <div id="page-about" class="page-content hidden">
-            <!-- Hero -->
             <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
                 <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center opacity-20"></div>
                 <div class="container mx-auto px-6 relative z-10 text-center">
@@ -773,38 +707,21 @@
                     <p class="text-lg text-slate-300 max-w-2xl mx-auto">Crossea Abroad Education was founded on a simple premise: Every student deserves access to world-class education, regardless of borders.</p>
                 </div>
             </section>
-            
-            <!-- Stats -->
             <section class="py-12 bg-orange-600 text-white">
                 <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div>
-                        <h3 class="text-4xl font-bold mb-2">10+</h3>
-                        <p class="text-orange-200 text-sm uppercase tracking-wider">Years Experience</p>
-                    </div>
-                    <div>
-                        <h3 class="text-4xl font-bold mb-2">10k+</h3>
-                        <p class="text-orange-200 text-sm uppercase tracking-wider">Students Placed</p>
-                    </div>
-                    <div>
-                        <h3 class="text-4xl font-bold mb-2">500+</h3>
-                        <p class="text-orange-200 text-sm uppercase tracking-wider">Partner Universities</p>
-                    </div>
-                    <div>
-                        <h3 class="text-4xl font-bold mb-2">98%</h3>
-                        <p class="text-orange-200 text-sm uppercase tracking-wider">Visa Success Rate</p>
-                    </div>
+                    <div><h3 class="text-4xl font-bold mb-2">10+</h3><p class="text-orange-200 text-sm uppercase tracking-wider">Years Experience</p></div>
+                    <div><h3 class="text-4xl font-bold mb-2">10k+</h3><p class="text-orange-200 text-sm uppercase tracking-wider">Students Placed</p></div>
+                    <div><h3 class="text-4xl font-bold mb-2">500+</h3><p class="text-orange-200 text-sm uppercase tracking-wider">Partner Universities</p></div>
+                    <div><h3 class="text-4xl font-bold mb-2">98%</h3><p class="text-orange-200 text-sm uppercase tracking-wider">Visa Success Rate</p></div>
                 </div>
             </section>
-
-            <!-- Mission/Vision -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 class="text-3xl font-bold text-slate-900 mb-6 border-l-4 border-orange-500 pl-4">Our Mission</h2>
-                        <p class="text-slate-600 leading-relaxed mb-8">To provide ethical, transparent, and highly personalized counseling to aspiring students. We navigate the complexities of international admissions so you can focus on building your future.</p>
-                        
+                        <p class="text-slate-600 leading-relaxed mb-8">To provide ethical, transparent, and highly personalized counseling to aspiring students.</p>
                         <h2 class="text-3xl font-bold text-slate-900 mb-6 border-l-4 border-blue-500 pl-4">Our Vision</h2>
-                        <p class="text-slate-600 leading-relaxed">To be India's most trusted global education gateway, fostering a community of innovative leaders equipped with international perspectives.</p>
+                        <p class="text-slate-600 leading-relaxed">To be India's most trusted global education gateway.</p>
                     </div>
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl">
                         <img src="https://i.ibb.co/DfYHDsXQ/image.png" alt="Team meeting" class="w-full h-full object-cover bg-white">
@@ -813,75 +730,34 @@
             </section>
         </div>
 
-        <!-- ==========================================
-             PAGE 3: UNIVERSITIES
-        =========================================== -->
+        <!-- PAGE 3: UNIVERSITIES -->
         <div id="page-universities" class="page-content hidden">
-            <!-- Hero -->
             <section class="py-16 bg-orange-50 text-center">
                 <div class="container mx-auto px-6">
                     <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Top Global Universities</h1>
-                    <p class="text-slate-600 max-w-2xl mx-auto mb-10">We have direct tie-ups with over 500+ institutions globally, ensuring fast-tracked applications and application fee waivers.</p>
-                    
-                    <!-- Search Bar Mockup -->
+                    <p class="text-slate-600 max-w-2xl mx-auto mb-10">We have direct tie-ups with over 500+ institutions globally.</p>
                     <div class="max-w-2xl mx-auto flex bg-white p-2 rounded-full shadow-lg border border-orange-100">
                         <input type="text" placeholder="Search for courses or universities..." class="w-full px-6 py-3 outline-none rounded-l-full bg-transparent">
-                        <button onclick="document.getElementById('consultation').scrollIntoView();" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition whitespace-nowrap">
-                            Get Shortlisted
-                        </button>
+                        <button onclick="document.getElementById('consultation').scrollIntoView();" class="px-8 py-3 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition whitespace-nowrap">Get Shortlisted</button>
                     </div>
                 </div>
             </section>
-
-            <!-- University Grid -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6">
                     <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Card 1 -->
                         <div class="border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition flex flex-col">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl font-bold">🇺🇸</div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-slate-900">MIT</h3>
-                                    <p class="text-sm text-slate-500">Massachusetts, USA</p>
-                                </div>
-                            </div>
-                            <div class="space-y-2 mb-6 flex-grow">
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> Top for Engineering</p>
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> High Scholarship Range</p>
-                            </div>
+                            <div class="flex items-center gap-4 mb-6"><div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl font-bold">🇺🇸</div><div><h3 class="text-xl font-bold text-slate-900">MIT</h3><p class="text-sm text-slate-500">Massachusetts, USA</p></div></div>
+                            <div class="space-y-2 mb-6 flex-grow"><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>Top for Engineering</p><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>High Scholarship Range</p></div>
                             <button onclick="document.getElementById('consultation').scrollIntoView();" class="w-full py-3 bg-orange-50 text-orange-600 font-bold rounded-xl hover:bg-orange-600 hover:text-white transition">Check Eligibility</button>
                         </div>
-                        
-                        <!-- Card 2 -->
                         <div class="border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition flex flex-col">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold">🇬🇧</div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-slate-900">University of Oxford</h3>
-                                    <p class="text-sm text-slate-500">Oxford, UK</p>
-                                </div>
-                            </div>
-                            <div class="space-y-2 mb-6 flex-grow">
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> Elite Research Facilities</p>
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> Fast-track Post Study Visa</p>
-                            </div>
+                            <div class="flex items-center gap-4 mb-6"><div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold">🇬🇧</div><div><h3 class="text-xl font-bold text-slate-900">University of Oxford</h3><p class="text-sm text-slate-500">Oxford, UK</p></div></div>
+                            <div class="space-y-2 mb-6 flex-grow"><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>Elite Research Facilities</p><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>Fast-track Post Study Visa</p></div>
                             <button onclick="document.getElementById('consultation').scrollIntoView();" class="w-full py-3 bg-orange-50 text-orange-600 font-bold rounded-xl hover:bg-orange-600 hover:text-white transition">Check Eligibility</button>
                         </div>
-
-                        <!-- Card 3 -->
                         <div class="border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition flex flex-col">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl font-bold">🇨🇦</div>
-                                <div>
-                                    <h3 class="text-xl font-bold text-slate-900">University of Toronto</h3>
-                                    <p class="text-sm text-slate-500">Toronto, Canada</p>
-                                </div>
-                            </div>
-                            <div class="space-y-2 mb-6 flex-grow">
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> Easy PR Pathways</p>
-                                <p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i> High ROI on Tech Degrees</p>
-                            </div>
+                            <div class="flex items-center gap-4 mb-6"><div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl font-bold">🇨🇦</div><div><h3 class="text-xl font-bold text-slate-900">University of Toronto</h3><p class="text-sm text-slate-500">Toronto, Canada</p></div></div>
+                            <div class="space-y-2 mb-6 flex-grow"><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>Easy PR Pathways</p><p class="text-sm text-slate-600"><i class="fa-solid fa-check text-green-500 mr-2"></i>High ROI on Tech Degrees</p></div>
                             <button onclick="document.getElementById('consultation').scrollIntoView();" class="w-full py-3 bg-orange-50 text-orange-600 font-bold rounded-xl hover:bg-orange-600 hover:text-white transition">Check Eligibility</button>
                         </div>
                     </div>
@@ -889,116 +765,62 @@
             </section>
         </div>
 
-        <!-- ==========================================
-             PAGE 4: COMMUNITY
-        =========================================== -->
+        <!-- PAGE 4: COMMUNITY -->
         <div id="page-community" class="page-content hidden">
-            <!-- Hero -->
             <section class="py-20 bg-gradient-to-br from-indigo-900 to-purple-900 text-white text-center">
                 <div class="container mx-auto px-6">
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">Join the Crossea Family</h1>
-                    <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-10">Connect with 10,000+ alumni across the globe. Attend our events, join our forums, and get mentorship from students already studying abroad.</p>
-                    <a href="https://instagram.com/crossea.in" target="_blank" class="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold rounded-full hover:shadow-lg hover:shadow-pink-500/50 transition inline-block">
-                        <i class="fa-brands fa-instagram mr-2"></i> Follow us on Instagram
-                    </a>
+                    <p class="text-lg text-purple-200 max-w-2xl mx-auto mb-10">Connect with 10,000+ alumni across the globe.</p>
+                    <a href="https://instagram.com/crossea.in" target="_blank" class="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-500 text-white font-bold rounded-full hover:shadow-lg transition inline-block"><i class="fa-brands fa-instagram mr-2"></i>Follow us on Instagram</a>
                 </div>
             </section>
-
-            <!-- Testimonials -->
             <section class="py-20 bg-slate-50">
                 <div class="container mx-auto px-6">
                     <h2 class="text-3xl font-bold text-center text-slate-900 mb-12">Student Success Stories</h2>
                     <div class="grid md:grid-cols-3 gap-8">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                             <div class="flex text-orange-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="text-slate-600 italic mb-6">"Crossea made my USA visa process a breeze. Their mock interviews prepared me perfectly for the real thing!"</p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center font-bold text-orange-600">R</div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900">Rahul Sharma</h4>
-                                    <p class="text-xs text-slate-500">Arizona State University 🇺🇸</p>
-                                </div>
-                            </div>
+                            <p class="text-slate-600 italic mb-6">"Crossea made my USA visa process a breeze. Their mock interviews prepared me perfectly!"</p>
+                            <div class="flex items-center gap-4"><div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center font-bold text-orange-600">R</div><div><h4 class="font-bold text-slate-900">Rahul Sharma</h4><p class="text-xs text-slate-500">Arizona State University 🇺🇸</p></div></div>
                         </div>
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                             <div class="flex text-orange-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="text-slate-600 italic mb-6">"I secured a $20,000 scholarship thanks to their expert SOP guidance. Highly recommended!"</p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">P</div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900">Priya Patel</h4>
-                                    <p class="text-xs text-slate-500">University of Toronto 🇨🇦</p>
-                                </div>
-                            </div>
+                            <p class="text-slate-600 italic mb-6">"I secured a $20,000 scholarship thanks to their expert SOP guidance!"</p>
+                            <div class="flex items-center gap-4"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600">P</div><div><h4 class="font-bold text-slate-900">Priya Patel</h4><p class="text-xs text-slate-500">University of Toronto 🇨🇦</p></div></div>
                         </div>
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
                             <div class="flex text-orange-400 mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                            <p class="text-slate-600 italic mb-6">"From course selection to booking my flight tickets, they held my hand through the entire journey."</p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600">A</div>
-                                <div>
-                                    <h4 class="font-bold text-slate-900">Amit Kumar</h4>
-                                    <p class="text-xs text-slate-500">University of Melbourne 🇦🇺</p>
-                                </div>
-                            </div>
+                            <p class="text-slate-600 italic mb-6">"From course selection to booking my flight tickets, they held my hand throughout."</p>
+                            <div class="flex items-center gap-4"><div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-600">A</div><div><h4 class="font-bold text-slate-900">Amit Kumar</h4><p class="text-xs text-slate-500">University of Melbourne 🇦🇺</p></div></div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- ==========================================
-             PAGE 5: CAREERS
-        =========================================== -->
+        <!-- PAGE 5: CAREERS -->
         <div id="page-careers" class="page-content hidden">
-            <!-- Hero -->
             <section class="py-20 bg-slate-900 text-white text-center">
                 <div class="container mx-auto px-6">
                     <span class="inline-block px-4 py-1 bg-white/10 rounded-full text-orange-400 font-semibold text-sm mb-6">We are Hiring!</span>
                     <h1 class="text-4xl md:text-6xl font-bold mb-6">Build the Future of Education</h1>
-                    <p class="text-lg text-slate-300 max-w-2xl mx-auto">Join a fast-growing, dynamic team dedicated to transforming students' lives. We offer great perks, a learning-first culture, and excellent growth opportunities.</p>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto">Join a fast-growing, dynamic team dedicated to transforming students' lives.</p>
                 </div>
             </section>
-
-            <!-- Open Positions -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6 max-w-4xl">
                     <h2 class="text-3xl font-bold text-slate-900 mb-10 text-center">Open Positions</h2>
-                    
                     <div class="space-y-6">
-                        <!-- Job 1 -->
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border border-slate-200 rounded-2xl hover:border-orange-500 transition shadow-sm">
-                            <div class="mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-900">Senior Education Counselor</h3>
-                                <div class="flex gap-4 text-sm text-slate-500 mt-2">
-                                    <span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i> Hyderabad</span>
-                                    <span><i class="fa-solid fa-clock mr-1 text-orange-500"></i> Full-Time</span>
-                                </div>
-                            </div>
+                            <div class="mb-4 md:mb-0"><h3 class="text-xl font-bold text-slate-900">Senior Education Counselor</h3><div class="flex gap-4 text-sm text-slate-500 mt-2"><span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i>Hyderabad</span><span><i class="fa-solid fa-clock mr-1 text-orange-500"></i>Full-Time</span></div></div>
                             <a href="mailto:info@crossea.edu?subject=Application for Senior Counselor" class="px-6 py-2 bg-orange-50 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition">Apply Now</a>
                         </div>
-
-                        <!-- Job 2 -->
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border border-slate-200 rounded-2xl hover:border-orange-500 transition shadow-sm">
-                            <div class="mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-900">Visa Processing Officer</h3>
-                                <div class="flex gap-4 text-sm text-slate-500 mt-2">
-                                    <span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i> Hyderabad</span>
-                                    <span><i class="fa-solid fa-clock mr-1 text-orange-500"></i> Full-Time</span>
-                                </div>
-                            </div>
+                            <div class="mb-4 md:mb-0"><h3 class="text-xl font-bold text-slate-900">Visa Processing Officer</h3><div class="flex gap-4 text-sm text-slate-500 mt-2"><span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i>Hyderabad</span><span><i class="fa-solid fa-clock mr-1 text-orange-500"></i>Full-Time</span></div></div>
                             <a href="mailto:info@crossea.edu?subject=Application for Visa Officer" class="px-6 py-2 bg-orange-50 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition">Apply Now</a>
                         </div>
-
-                        <!-- Job 3 -->
                         <div class="flex flex-col md:flex-row justify-between items-start md:items-center p-6 border border-slate-200 rounded-2xl hover:border-orange-500 transition shadow-sm">
-                            <div class="mb-4 md:mb-0">
-                                <h3 class="text-xl font-bold text-slate-900">Digital Marketing Executive</h3>
-                                <div class="flex gap-4 text-sm text-slate-500 mt-2">
-                                    <span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i> Hybrid</span>
-                                    <span><i class="fa-solid fa-clock mr-1 text-orange-500"></i> Full-Time</span>
-                                </div>
-                            </div>
+                            <div class="mb-4 md:mb-0"><h3 class="text-xl font-bold text-slate-900">Digital Marketing Executive</h3><div class="flex gap-4 text-sm text-slate-500 mt-2"><span><i class="fa-solid fa-location-dot mr-1 text-orange-500"></i>Hybrid</span><span><i class="fa-solid fa-clock mr-1 text-orange-500"></i>Full-Time</span></div></div>
                             <a href="mailto:info@crossea.edu?subject=Application for Digital Marketing" class="px-6 py-2 bg-orange-50 text-orange-600 font-bold rounded-lg hover:bg-orange-600 hover:text-white transition">Apply Now</a>
                         </div>
                     </div>
@@ -1006,100 +828,62 @@
             </section>
         </div>
 
-        <!-- ==========================================
-             GLOBAL FOOTER SECTIONS (Always Visible)
-        =========================================== -->
-        
         <!-- INSTAGRAM SLIDER SECTION -->
         <section class="py-16 bg-white overflow-hidden border-t border-slate-100">
             <div class="container mx-auto px-6 text-center mb-8">
-                <div class="inline-block p-3 bg-pink-100 text-pink-600 rounded-full text-2xl mb-4">
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
+                <div class="inline-block p-3 bg-pink-100 text-pink-600 rounded-full text-2xl mb-4"><i class="fa-brands fa-instagram"></i></div>
                 <h2 class="text-3xl font-bold text-slate-900 mb-2">Join Our Instagram Community</h2>
                 <p class="text-slate-600">Follow <a href="https://instagram.com/crossea.in" target="_blank" class="text-pink-600 font-semibold hover:underline">@crossea.in</a> for daily tips, live Q&A, and student takeovers.</p>
             </div>
-            
             <a href="https://instagram.com/crossea.in" target="_blank" class="block cursor-pointer group">
                 <div class="insta-slider-container">
                     <div class="insta-track">
-                        <!-- Cloned images to create infinite slide effect -->
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        
-                        <!-- Duplicate set for seamless looping -->
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
-                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:opacity-90 transition"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
+                        <div class="insta-card"><img src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover"></div>
                     </div>
                 </div>
             </a>
-            
             <div class="text-center mt-6">
-                <a href="https://instagram.com/crossea.in" target="_blank" class="inline-flex items-center gap-2 font-bold text-pink-600 hover:text-pink-700 transition">
-                    View More on Instagram <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="https://instagram.com/crossea.in" target="_blank" class="inline-flex items-center gap-2 font-bold text-pink-600 hover:text-pink-700 transition">View More on Instagram <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </section>
 
-        <!-- NEW CONSULTATION FORM SECTION -->
+        <!-- CONSULTATION FORM SECTION -->
         <section id="consultation" class="py-16 md:py-24 bg-orange-50 border-t border-orange-100 relative">
             <div class="container mx-auto px-6">
                 <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-orange-100 grid md:grid-cols-2">
-                    
-                    <!-- Left Details -->
                     <div class="bg-gradient-to-br from-orange-500 to-red-600 p-10 text-white flex flex-col justify-between relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-                        
                         <div class="relative z-10">
                             <h2 class="text-3xl font-bold mb-4">Let's map out your future, together.</h2>
-                            <p class="text-orange-100 mb-8 leading-relaxed">Book a free, 1-on-1 consultation with our senior abroad education experts. We'll assess your profile, suggest top universities, and explain the roadmap to success.</p>
-                            
+                            <p class="text-orange-100 mb-8 leading-relaxed">Book a free, 1-on-1 consultation with our senior abroad education experts.</p>
                             <div class="space-y-6">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0 backdrop-blur-sm">
-                                        <i class="fa-solid fa-headset text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-orange-200 uppercase tracking-wider font-semibold">Call Us Anytime</p>
-                                        <p class="font-bold text-lg">+91 95501 94749</p>
-                                    </div>
+                                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0 backdrop-blur-sm"><i class="fa-solid fa-headset text-xl"></i></div>
+                                    <div><p class="text-xs text-orange-200 uppercase tracking-wider font-semibold">Call Us Anytime</p><p class="font-bold text-lg">+91 95501 94749</p></div>
                                 </div>
                                 <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0 backdrop-blur-sm">
-                                        <i class="fa-solid fa-location-dot text-xl"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs text-orange-200 uppercase tracking-wider font-semibold">Visit Our Office</p>
-                                        <p class="font-bold text-sm leading-snug">Plot No:40C, Flat no:301,<br>Addagutta Society, Pragathi Nagar,<br>Kukatpally, Hyderabad, TS 500085</p>
-                                    </div>
+                                    <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0 backdrop-blur-sm"><i class="fa-solid fa-location-dot text-xl"></i></div>
+                                    <div><p class="text-xs text-orange-200 uppercase tracking-wider font-semibold">Visit Our Office</p><p class="font-bold text-sm leading-snug">Plot No:40C, Flat no:301,<br>Addagutta Society, Pragathi Nagar,<br>Kukatpally, Hyderabad, TS 500085</p></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Right Form -->
                     <div class="p-10 relative">
                         <div id="consultFormContainer">
                             <h3 class="text-2xl font-bold text-slate-900 mb-6">Book Your Free Consultation</h3>
                             <form id="consultationForm" action="https://formspree.io/f/xjgerpaz" method="POST" onsubmit="handleFormSubmit(event, 'btnConsultSubmit', 'consultFormContainer', 'consultSuccessMessage')">
-                                <div class="input-group">
-                                    <input type="text" name="Name" id="consultName" class="input-field" placeholder=" " required>
-                                    <label for="consultName" class="input-label">Full Name</label>
-                                </div>
-                                <div class="input-group">
-                                    <input type="tel" name="Mobile" id="consultMobile" class="input-field" placeholder=" " required pattern="[0-9]{10,15}" title="Please enter a valid phone number">
-                                    <label for="consultMobile" class="input-label">Mobile Number</label>
-                                </div>
-                                <div class="input-group">
-                                    <input type="email" name="Email" id="consultEmail" class="input-field" placeholder=" " required>
-                                    <label for="consultEmail" class="input-label">Email Address</label>
-                                </div>
+                                <div class="input-group"><input type="text" name="Name" id="consultName" class="input-field" placeholder=" " required><label for="consultName" class="input-label">Full Name</label></div>
+                                <div class="input-group"><input type="tel" name="Mobile" id="consultMobile" class="input-field" placeholder=" " required pattern="[0-9]{10,15}"><label for="consultMobile" class="input-label">Mobile Number</label></div>
+                                <div class="input-group"><input type="email" name="Email" id="consultEmail" class="input-field" placeholder=" " required><label for="consultEmail" class="input-label">Email Address</label></div>
                                 <div class="input-group">
                                     <select name="Interested_Destination" id="consultDest" class="input-field text-slate-600 appearance-none bg-white" required>
                                         <option value="" disabled selected hidden></option>
@@ -1112,19 +896,12 @@
                                     <label for="consultDest" class="input-label">Preferred Destination</label>
                                     <i class="fa-solid fa-chevron-down absolute right-4 top-4 text-slate-400 pointer-events-none"></i>
                                 </div>
-                                <div class="input-group">
-                                    <textarea name="Message" id="consultMsg" rows="3" class="input-field resize-none" placeholder=" "></textarea>
-                                    <label for="consultMsg" class="input-label">Any specific query? (Optional)</label>
-                                </div>
-                                
+                                <div class="input-group"><textarea name="Message" id="consultMsg" rows="3" class="input-field resize-none" placeholder=" "></textarea><label for="consultMsg" class="input-label">Any specific query? (Optional)</label></div>
                                 <button type="submit" id="btnConsultSubmit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
-                                    <span>Confirm Booking</span>
-                                    <i class="fa-solid fa-check"></i>
+                                    <span>Confirm Booking</span><i class="fa-solid fa-check"></i>
                                 </button>
                             </form>
                         </div>
-
-                        <!-- Consultation Success State -->
                         <div id="consultSuccessMessage" class="hidden h-full flex flex-col items-center justify-center text-center py-12">
                             <div class="success-pop">
                                 <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -1132,7 +909,7 @@
                                     <path class="success-checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
                                 </svg>
                                 <h3 class="text-3xl font-bold text-slate-800 mb-3">Booking Confirmed!</h3>
-                                <p class="text-slate-600">Thanks for reaching out. A dedicated counselor will be in touch with you shortly via phone/WhatsApp.</p>
+                                <p class="text-slate-600">A dedicated counselor will be in touch shortly.</p>
                             </div>
                         </div>
                     </div>
@@ -1154,7 +931,6 @@
                         <a href="#" class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center hover:bg-blue-400 hover:text-white transition"><i class="fa-brands fa-twitter"></i></a>
                     </div>
                 </div>
-                
                 <div class="flex flex-col">
                     <h4 class="text-slate-900 font-bold mb-4 text-lg">Quick Links</h4>
                     <ul class="flex flex-col space-y-3 font-medium text-slate-600">
@@ -1165,20 +941,12 @@
                         <li><a href="blog.html" class="hover:text-orange-600 transition cursor-pointer inline-block">Blog</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-slate-900 font-bold mb-4 text-lg">Contact Us</h4>
                     <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-3 text-slate-700 font-medium">
-                            <i class="fa-solid fa-phone text-orange-500"></i> +91 95501 94749
-                        </li>
-                        <li class="flex items-center gap-3 text-slate-700">
-                            <i class="fa-solid fa-envelope text-orange-500"></i> info@crossea.edu
-                        </li>
-                        <li class="flex items-start gap-3 text-slate-700">
-                            <i class="fa-solid fa-location-dot text-orange-500 mt-1"></i> 
-                            <span class="leading-relaxed">Plot No:40C, Flat no:301, Road, Adagutta society, Addagutta Society, Pragathi Nagar, Kukatpally, Hyderabad, Telangana 500085</span>
-                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium"><i class="fa-solid fa-phone text-orange-500"></i> +91 95501 94749</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i class="fa-solid fa-envelope text-orange-500"></i> info@crossea.edu</li>
+                        <li class="flex items-start gap-3 text-slate-700"><i class="fa-solid fa-location-dot text-orange-500 mt-1"></i><span class="leading-relaxed">Plot No:40C, Flat no:301, Addagutta Society, Pragathi Nagar, Kukatpally, Hyderabad, Telangana 500085</span></li>
                     </ul>
                 </div>
             </div>
@@ -1189,102 +957,46 @@
 
     </main>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- 1. INITIALIZATION & ANIMATIONS ---
         AOS.init({ once: true, offset: 100 });
 
         window.addEventListener('load', () => {
-            // Handle cross-page SPA routing (e.g. from blog.html?page=about)
             const urlParams = new URLSearchParams(window.location.search);
             const targetPage = urlParams.get('page');
             if (targetPage) {
                 navigate(targetPage);
                 window.history.replaceState({}, document.title, window.location.pathname);
             }
-
             setTimeout(() => {
-                const modal = document.getElementById('leadModal');
                 if(!sessionStorage.getItem('leadSubmitted') && !targetPage) {
-                    modal.classList.add('active');
+                    document.getElementById('leadModal').classList.add('active');
                 }
             }, 1500);
-
             const track = document.getElementById('newsTrack');
             if (track) track.innerHTML += track.innerHTML;
         });
 
-        // --- 2. SPA NAVIGATION LOGIC ---
         function navigate(pageId) {
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('block');
-            });
-            
-            // Show target page
+            document.querySelectorAll('.page-content').forEach(el => { el.classList.add('hidden'); el.classList.remove('block'); });
             const targetPage = document.getElementById('page-' + pageId);
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-                targetPage.classList.add('block');
-            }
-            
-            // Scroll to top
+            if (targetPage) { targetPage.classList.remove('hidden'); targetPage.classList.add('block'); }
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            // Update active nav links
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             document.querySelectorAll(`.nav-link[data-target="${pageId}"]`).forEach(l => l.classList.add('active'));
-            
-            // Close mobile menu if open
             const menu = document.getElementById('mobileMenu');
-            if(menu && menu.classList.contains('open')) {
-                menu.classList.remove('open');
-            }
-
-            // Refresh animations
+            if(menu && menu.classList.contains('open')) menu.classList.remove('open');
             setTimeout(() => AOS.refresh(), 100);
         }
 
-        // --- 3. MOBILE MENU ---
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('open');
-        }
-
-        // --- 4. MODAL LOGIC ---
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        // --- 5. DATA MAPS FOR MODALS ---
         const destinations = {
-            'USA': {
-                image: 'https://thumbs.dreamstime.com/b/princeton-university-one-famous-american-universities-49043534.jpg',
-                subtitle: 'Ivy Leagues & Innovation', budget: '$30k - $60k / year', safety: 'Moderate - High', salary: '$85,000 / year',
-                job: 'Software Engineer / Data Scientist', universities: ['MIT', 'Stanford University', 'Harvard University', 'Caltech', 'University of Texas at Austin'],
-                courses: ['Computer Science', 'Business Analytics', 'Biotechnology', 'Mechanical Eng.'],
-                social: '#USALife #StudentVisa #OPT - Trending topics include F1 Visa slot updates and OPT extension rules.'
-            },
-            'UK': {
-                image: 'https://w0.peakpx.com/wallpaper/592/1008/HD-wallpaper-university-of-cambridge-university-buildings-old-universities-cambridge-cityscape-cambridge-england-united-kingdom.jpg',
-                subtitle: 'Heritage & Academic Excellence', budget: '£20k - £40k / year', safety: 'High', salary: '£45,000 / year',
-                job: 'Finance / Investment Banking', universities: ['University of Oxford', 'University of Cambridge', 'Imperial College London', 'LSE', 'UCL'],
-                courses: ['Law', 'Finance', 'Medicine', 'Management'],
-                social: '#LondonLife #PSW - Buzzing about the 2-year Graduate Route visa and new dependent rules.'
-            },
-            'Canada': {
-                image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                subtitle: 'Quality Education & PR Pathways', budget: 'CAD 20k - 40k / year', safety: 'Very High', salary: 'CAD 65,000 / year',
-                job: 'Healthcare / IT Project Manager', universities: ['University of Toronto', 'McGill University', 'UBC', 'University of Alberta'],
-                courses: ['Nursing', 'Cloud Computing', 'Project Management', 'Engineering'],
-                social: '#CanadaPR #ExpressEntry - Hot topics include recent PNP draws and PGWP updates.'
-            },
-            'Australia': {
-                image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-                subtitle: 'Great Lifestyle & World Class Research', budget: 'AUD 30k - 50k / year', safety: 'High', salary: 'AUD 75,000 / year',
-                job: 'Civil Engineering / Mining', universities: ['University of Melbourne', 'Australian National University', 'University of Sydney', 'UNSW'],
-                courses: ['Mining', 'Marine Biology', 'IT', 'MBA'],
-                social: '#StudyAustralia #BeachLife - Discussions on extended post-study work rights for specific degrees.'
-            }
+            'USA': { image: 'https://thumbs.dreamstime.com/b/princeton-university-one-famous-american-universities-49043534.jpg', subtitle: 'Ivy Leagues & Innovation', budget: '$30k - $60k / year', safety: 'Moderate - High', salary: '$85,000 / year', job: 'Software Engineer / Data Scientist', universities: ['MIT', 'Stanford University', 'Harvard University', 'Caltech', 'University of Texas at Austin'], courses: ['Computer Science', 'Business Analytics', 'Biotechnology', 'Mechanical Eng.'], social: '#USALife #StudentVisa #OPT - Trending topics include F1 Visa slot updates and OPT extension rules.' },
+            'UK': { image: 'https://w0.peakpx.com/wallpaper/592/1008/HD-wallpaper-university-of-cambridge-university-buildings-old-universities-cambridge-cityscape-cambridge-england-united-kingdom.jpg', subtitle: 'Heritage & Academic Excellence', budget: '£20k - £40k / year', safety: 'High', salary: '£45,000 / year', job: 'Finance / Investment Banking', universities: ['University of Oxford', 'University of Cambridge', 'Imperial College London', 'LSE', 'UCL'], courses: ['Law', 'Finance', 'Medicine', 'Management'], social: '#LondonLife #PSW - Buzzing about the 2-year Graduate Route visa and new dependent rules.' },
+            'Canada': { image: 'https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', subtitle: 'Quality Education & PR Pathways', budget: 'CAD 20k - 40k / year', safety: 'Very High', salary: 'CAD 65,000 / year', job: 'Healthcare / IT Project Manager', universities: ['University of Toronto', 'McGill University', 'UBC', 'University of Alberta'], courses: ['Nursing', 'Cloud Computing', 'Project Management', 'Engineering'], social: '#CanadaPR #ExpressEntry - Hot topics include recent PNP draws and PGWP updates.' },
+            'Australia': { image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80', subtitle: 'Great Lifestyle & World Class Research', budget: 'AUD 30k - 50k / year', safety: 'High', salary: 'AUD 75,000 / year', job: 'Civil Engineering / Mining', universities: ['University of Melbourne', 'Australian National University', 'University of Sydney', 'UNSW'], courses: ['Mining', 'Marine Biology', 'IT', 'MBA'], social: '#StudyAustralia #BeachLife - Discussions on extended post-study work rights for specific degrees.' }
         };
 
         function openDestinationModal(country) {
@@ -1298,15 +1010,12 @@
             document.getElementById('modalSalary').innerText = data.salary;
             document.getElementById('modalJob').innerText = data.job;
             document.getElementById('modalSocial').innerText = data.social;
-
             const uniList = document.getElementById('modalUniversities');
             uniList.innerHTML = '';
             data.universities.forEach(uni => uniList.innerHTML += `<li>${uni}</li>`);
-
             const courseList = document.getElementById('modalCourses');
             courseList.innerHTML = '';
             data.courses.forEach(course => courseList.innerHTML += `<span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">${course}</span>`);
-
             openModal('destinationModal');
         }
 
@@ -1314,9 +1023,9 @@
             'career': { title: 'Career Counseling', icon: 'fa-user-graduate', colorClass: 'text-orange-600', bgClass: 'bg-orange-100', desc: 'Navigate the complex landscape of global education with confidence. We analyze your academic background, career aspirations, and financial constraints to curate a personalized roadmap.', bullets: ['Profile Evaluation & Enhancement', 'Course & University Shortlisting', 'Statement of Purpose (SOP) Assistance', 'Letters of Recommendation (LOR) Guidance'] },
             'visa': { title: 'Visa Assistance', icon: 'fa-passport', colorClass: 'text-blue-600', bgClass: 'bg-blue-100', desc: 'Our visa success rate speaks for itself. We provide meticulous, end-to-end guidance to ensure your visa application is flawless and approved on the first try.', bullets: ['Financial Documentation Review', 'Application Form Filing', 'Intensive Mock Interview Sessions', 'Visa Policy Updates & Alerts'] },
             'test': { title: 'Test Preparation', icon: 'fa-pen-nib', colorClass: 'text-green-600', bgClass: 'bg-green-100', desc: 'Achieve your target scores with our expert faculty. We offer structured, high-yield coaching tailored to your learning pace and desired university requirements.', bullets: ['IELTS, TOEFL, PTE Coaching', 'GRE & GMAT Strategy Sessions', 'Comprehensive Study Materials', 'Weekly Full-Length Mock Tests'] },
-            'scholarship': { title: 'Scholarship Guidance', icon: 'fa-hand-holding-dollar', colorClass: 'text-yellow-600', bgClass: 'bg-yellow-100', desc: 'Don’t let finances hold you back. We actively help you identify and secure merit-based, need-based, and country-specific scholarships.', bullets: ['Scholarship Identification & Matching', 'Application Essay Structuring', 'Education Loan Provider Networking', 'Fee Waiver Assistance'] },
+            'scholarship': { title: 'Scholarship Guidance', icon: 'fa-hand-holding-dollar', colorClass: 'text-yellow-600', bgClass: 'bg-yellow-100', desc: "Don't let finances hold you back. We actively help you identify and secure merit-based, need-based, and country-specific scholarships.", bullets: ['Scholarship Identification & Matching', 'Application Essay Structuring', 'Education Loan Provider Networking', 'Fee Waiver Assistance'] },
             'accommodation': { title: 'Accommodation Support', icon: 'fa-house-chimney', colorClass: 'text-red-600', bgClass: 'bg-red-100', desc: 'Feel at home, away from home. We assist in securing safe, affordable, and conveniently located student housing before you even board your flight.', bullets: ['On-Campus Dorm Booking', 'Off-Campus Apartment Hunting', 'Trusted Homestay Connections', 'Lease & Contract Guidance'] },
-            'postarrival': { title: 'Post-Arrival Help', icon: 'fa-plane-arrival', colorClass: 'text-indigo-600', bgClass: 'bg-indigo-100', desc: 'Your journey doesn’t end when you get the visa. Our team ensures your transition into a new country is smooth, safe, and stress-free.', bullets: ['Reliable Airport Pickup', 'Local SIM Card & Forex Setup', 'Bank Account Opening Assistance', 'Local Student Alumni Networking'] }
+            'postarrival': { title: 'Post-Arrival Help', icon: 'fa-plane-arrival', colorClass: 'text-indigo-600', bgClass: 'bg-indigo-100', desc: "Your journey doesn't end when you get the visa. Our team ensures your transition into a new country is smooth, safe, and stress-free.", bullets: ['Reliable Airport Pickup', 'Local SIM Card & Forex Setup', 'Bank Account Opening Assistance', 'Local Student Alumni Networking'] }
         };
 
         function openServiceModal(key) {
@@ -1324,73 +1033,55 @@
             if(!data) return;
             document.getElementById('modalServiceTitle').innerText = data.title;
             document.getElementById('modalServiceDesc').innerText = data.desc;
-            
             const iconDiv = document.getElementById('modalServiceIcon');
             iconDiv.className = `w-16 h-16 mx-auto rounded-2xl flex items-center justify-center text-3xl mb-4 ${data.bgClass} ${data.colorClass}`;
             iconDiv.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
-
             const list = document.getElementById('modalServiceList');
             list.innerHTML = '';
-            data.bullets.forEach(bullet => list.innerHTML += `<li class="flex items-start gap-3"><i class="fa-solid fa-circle-check mt-1 ${data.colorClass}"></i> <span>${bullet}</span></li>`);
-
+            data.bullets.forEach(bullet => list.innerHTML += `<li class="flex items-start gap-3"><i class="fa-solid fa-circle-check mt-1 ${data.colorClass}"></i><span>${bullet}</span></li>`);
             openModal('serviceModal');
         }
 
         function openArticleModal(element) {
-            // Find data inside the clicked card
             const title = element.querySelector('.article-title').textContent;
             const imgSrc = element.querySelector('img').src;
             const tagEl = element.querySelector('.article-tag');
             const tagText = tagEl ? tagEl.textContent : 'Update';
             const tagColor = tagEl ? tagEl.getAttribute('data-color') || 'bg-slate-800' : 'bg-slate-800';
             const bodyHTML = element.querySelector('.article-content').innerHTML;
-
-            // Populate Modal
             document.getElementById('articleModalTitle').textContent = title;
             document.getElementById('articleModalImg').src = imgSrc;
-            
             const mTag = document.getElementById('articleModalTag');
             mTag.textContent = tagText;
             mTag.className = `absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 rounded shadow-md uppercase z-10 ${tagColor}`;
-            
             document.getElementById('articleModalBody').innerHTML = bodyHTML;
             openModal('articleModal');
         }
 
-        // --- 6. UNIFIED FORM SUBMISSION HANDLER ---
         async function handleFormSubmit(event, btnId, formContainerId, successMessageId) {
             event.preventDefault();
             const form = event.target;
             const btn = document.getElementById(btnId);
             const originalBtnHtml = btn.innerHTML;
-
             btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Submitting...';
             btn.disabled = true;
             btn.classList.add('opacity-80', 'cursor-not-allowed');
-
             const data = new FormData(form);
-
             try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
+                const response = await fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } });
                 if (response.ok) {
                     sessionStorage.setItem('leadSubmitted', 'true');
-                    document.getElementById(formContainerId).classList.add('hidden'); 
-                    document.getElementById(successMessageId).classList.remove('hidden'); 
+                    document.getElementById(formContainerId).classList.add('hidden');
+                    document.getElementById(successMessageId).classList.remove('hidden');
                 } else {
-                    alert("Oops! There was a problem submitting your form. Please try again.");
+                    alert("Oops! There was a problem. Please try again.");
                     btn.innerHTML = originalBtnHtml; btn.disabled = false; btn.classList.remove('opacity-80', 'cursor-not-allowed');
                 }
             } catch (error) {
-                alert("Oops! Network issue detected. Please check your connection and try again.");
+                alert("Network issue. Please check your connection and try again.");
                 btn.innerHTML = originalBtnHtml; btn.disabled = false; btn.classList.remove('opacity-80', 'cursor-not-allowed');
             }
         }
-
     </script>
 </body>
 </html>
